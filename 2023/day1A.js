@@ -34,14 +34,14 @@ function startsWithNumber(line) {
 const getCodeFromLine = (line) => {
   let first
   let last
-
-  while(line){
-    const maybe = startsWithNumber(line)
+  
+  for(let i = 0; i < line.length; i++){
+    const subLine = line.substring(i)
+    const maybe = startsWithNumber(subLine)
     if(maybe){
       first = first || maybe
       last = maybe
     }
-    line = line.slice(1, line.length)
   }
 
   return parseInt(`${first}${last}`)
