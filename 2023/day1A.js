@@ -34,7 +34,7 @@ function startsWithNumber(line) {
 const getCodeFromLine = (line) => {
   let first
   let last
-  
+
   for(let i = 0; i < line.length; i++){
     const subLine = line.substring(i)
     const maybe = startsWithNumber(subLine)
