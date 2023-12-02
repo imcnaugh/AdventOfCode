@@ -47,7 +47,7 @@ const getCodeFromLine = (line) => {
   return parseInt(`${first}${last}`)
 }
 
-const input = fs.readFileSync('resources/20231201A.txt', 'utf-8')
+const input = fs.readFileSync('resources/day1.txt', 'utf-8')
 
 const output = input.split('\n')
   .map(getCodeFromLine)
