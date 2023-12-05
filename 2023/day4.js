@@ -33,7 +33,6 @@ const output = input.split('\n').map(line => {
     copy[i] = copy[i] + copies
   }
 
-  console.log(`${gameNumber}, copies: ${copies}`)
   return copies
 }).reduce((p, c) => c + p, 0)
 
