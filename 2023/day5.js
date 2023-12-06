@@ -6,7 +6,18 @@ const input = fs.readFileSync(`resources/day5${isTest? '.test' : ''}.txt`, 'utf-
 const sections = input.split('\n\n')
 
 const seeds = sections[0].split(':')[1].split(' ').filter(a => a).map(a => parseInt(a))
-const getMappings = (line) => line.split(':')[1].split('\n').filter(a => a).map(m => m.split(' ').filter(a => a).map(a => parseInt(a)))
+const getMappings = (line) => line.split(':')[1]
+  .split('\n')
+  .filter(a => a)
+  .map(m => {
+    const l = m.split(' ').filter(a => a).map(a => parseInt(a))
+    return {
+      range: [l[1], l[1] + l[2] - 1],
+      op: l[0] - l[1]
+    }
+  }).sort((a,b) => a.range[0] - b.range[0])
+
+const mappings = sections.slice(1).map(getMappings)
 
 let seedRanges = []
 for(let i = 0; i < seeds.length; i = i + 2){
@@ -16,16 +27,16 @@ for(let i = 0; i < seeds.length; i = i + 2){
 let lowest = Number.MAX_SAFE_INTEGER
 
 seedRanges.map(seedRange =>{
-  for(let sr = seedRange[0]; sr < (seedRange[0] + seedRange[1]); sr++){
+  console.log('current seed range ', seedRange)
+  const high = seedRange[0] + seedRange[1]
+  for(let sr = seedRange[0]; sr < high; sr++){
     let carry = sr
-    for(let i = 1; i < sections.length; i++){
-      const mappings = getMappings(sections[i])
-      const map = mappings.find(m => ((m[1] <= carry) && (carry < (m[1] + m[2]))))
-      if(map) {
-        const diff = carry - map[1]
-        carry = map[0] + diff
+    mappings.forEach(level => {
+      const map = level.find(l => (l.range[0] <= carry) && (l.range[1] >= carry))
+      if(map){
+        carry = carry + map.op
       }
-    }
+    })
     lowest = Math.min(lowest, carry)
   }
 })
