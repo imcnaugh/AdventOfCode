@@ -21,7 +21,9 @@ const getType = (cards) => {
     pre[current] = pre[current] + 1
     return pre
   }, {})
+
   const jokerCount = 5 - cards.length
+  if(jokerCount === 5) return 10
   let maxCount = 0
   let maxNum
   for(const c in groupings){
@@ -30,7 +32,6 @@ const getType = (cards) => {
       maxNum = c
     }
   }
-
   groupings[maxNum] = groupings[maxNum] + jokerCount
 
   let has3ofAKind = false
