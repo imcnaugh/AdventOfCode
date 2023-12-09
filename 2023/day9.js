@@ -17,7 +17,7 @@ const goDeeper = (seq) => {
   if(isSequenceAllZeros(seq)) return 0
   const nextSeq = generateNextSequence(seq)
   const carry = goDeeper(nextSeq)
-  return carry + seq[seq.length - 1]
+  return seq[0] - carry
 }
 
 const output = input.split('\n').map(line => {
