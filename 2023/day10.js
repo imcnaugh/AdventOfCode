@@ -98,7 +98,6 @@ const height = input.split('\n').length
 
 let inMain = false
 let count = 0
-let inChar = ''
 
 for(let y = 0; y < height; y++){
   for(let x = 0; x < width; x++){
@@ -106,29 +105,7 @@ for(let y = 0; y < height; y++){
     if(inMain && ml === undefined) {
       count++
     }
-    if(!inMain){
-      if(ml === '|' || ml === 'F' || ml === 'L'){
-        inChar = ml
-        inMain = true
-      }
-    } else {
-      if(inChar === '|'){
-        if(ml === '|'){
-          inMain = false
-          inChar = undefined
-        } else if(ml === 'F') {
-          inChar = 'L'
-        } else if(ml === 'L') {
-          inChar = 'F'
-        }
-      } else if(inChar === 'F' && (ml === '|' || ml === '7')){
-        inMain = false
-        inChar = undefined
-      } else if(inChar === 'L' && (ml === '|' || ml === 'J')){
-        inMain = false
-        inChar = undefined
-      }
-    }
+    if(ml === '|' || ml === 'L' || ml === 'J') inMain = !inMain
   }
   inMain = false
 }
