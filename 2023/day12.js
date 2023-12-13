@@ -3,8 +3,6 @@ import fs from 'fs'
 const isTest = true
 const input = fs.readFileSync(`resources/day12${isTest ? '.test' : ''}.txt`, 'utf-8')
 
-let memo = {}
-
 const reduceStartAndEnd = (conditionRecord, sig) => {
   let currentRecord = [conditionRecord[0]]
   let currentSig = sig
@@ -35,7 +33,18 @@ function generateAll(record, sig, prefix) {
       }
     }
     return 1
+  } else if(prefix.length > 0){
+    for(let i = 0; i < prefix.length; i++){
+      const recordChar = record[i]
+      const prefixChar = prefix[i]
+      if(recordChar === '?'){
+
+      } else if (recordChar !== prefixChar){
+        return 0
+      }
+    }
   }
+
 
   let maxRemaining = sig[0]
   for(let i = 1; i < sig.length; i++){
@@ -57,7 +66,6 @@ function generateAll(record, sig, prefix) {
     if(nexSig.length === 0) plusPrefix = plusPrefix.padEnd(record.length, '.')
 
     const good = generateAll(record, nexSig, plusPrefix)
-    memo[plusPrefix] = good
     totalGood = totalGood + good
   }
 
