@@ -1,7 +1,9 @@
 import fs from 'fs'
 
-const isTest = false
+const isTest = true
 const input = fs.readFileSync(`resources/day12${isTest ? '.test' : ''}.txt`, 'utf-8')
+
+let memo = {}
 
 const reduceStartAndEnd = (conditionRecord, sig) => {
   let currentRecord = [conditionRecord[0]]
@@ -21,8 +23,8 @@ const reduceStartAndEnd = (conditionRecord, sig) => {
 }
 
 function generateAll(record, sig, prefix) {
+  if(memo[prefix]) return memo[prefix]
   if(sig.length === 0){
-    console.log(prefix)
     for(let i = 0; i < record.length; i++){
       const recordChar = record[i]
       const prefixChar = prefix[i]
@@ -33,7 +35,6 @@ function generateAll(record, sig, prefix) {
       }
     }
     return 1
-    // base case, check if prefix is a valid record, return 1 if yes, 0 if no
   }
 
   let maxRemaining = sig[0]
@@ -55,17 +56,41 @@ function generateAll(record, sig, prefix) {
 
     if(nexSig.length === 0) plusPrefix = plusPrefix.padEnd(record.length, '.')
 
-    totalGood = totalGood + generateAll(record, nexSig, plusPrefix)
+    const good = generateAll(record, nexSig, plusPrefix)
+    memo[plusPrefix] = good
+    totalGood = totalGood + good
   }
 
   return totalGood
 }
 
+const getUnfoldedRecords = (r) => {
+  let big = r
+  for(let i = 0; i < 4; i++){
+    big += '?'
+    big += r
+  }
+  return big
+}
+
+const getUnfoldedSig = (s) => {
+  let big = s
+  for(let i = 0; i < 4; i++) {
+    big += ','
+    big += s
+  }
+  return big
+}
+
 
 const getNumberOfVariations = (line) => {
   const parts = line.split(' ')
-  const conditionRecord = parts[0].replace(/^\.+|\.+$/g, '').split('')
-  const signature = parts[1].split(',').map(Number)
+
+  const unfoldedRecord = getUnfoldedRecords(parts[0])
+  const unfoldedSig = getUnfoldedSig(parts[1])
+
+  const conditionRecord = unfoldedRecord.replace(/^\.+|\.+$/g, '').split('')
+  const signature = unfoldedSig.split(',').map(Number)
   const{currentRecord: trimmedRecord, currentSig: trimmedSig} = reduceStartAndEnd(conditionRecord, signature)
   const varients =  generateAll(trimmedRecord, trimmedSig, '')
   console.log(line, varients)
