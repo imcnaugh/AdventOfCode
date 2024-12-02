@@ -39,18 +39,33 @@ fn part_1(input_file_path: &str) -> usize {
     let mut result = 0;
 
     let mut rows = data.split("\n");
-    while let Some(row) = rows.next() {
-        let r = check_row(row);
+    'outter: while let Some(initial_row) = rows.next() {
+        let initial_row: Vec<usize> = initial_row.split(" ").map(|e| e.parse().unwrap()).collect();
+        let r = check_row(&initial_row);
+        if r == 0 {
+            let idk: Vec<usize> = initial_row.clone();
+            for i in 0..idk.len() {
+                let mut tmp_row = idk.clone();
+                tmp_row.remove(i);
+
+                let r = check_row(&tmp_row);
+                if r == 1 {
+                    result += 1;
+                    continue 'outter;
+                }
+            }
+        }
         result += r;
     }
 
     result
 }
 
-fn check_row(row: &str) -> usize {
-    let mut elements = row.split(" ");
-    let first: usize = elements.next().unwrap().parse().unwrap();
-    let second: usize = elements.next().unwrap().parse().unwrap();
+fn check_row(row: &Vec<usize>) -> usize {
+    let row = row.clone();
+    let mut elements = row.into_iter();
+    let first: usize = elements.next().unwrap();
+    let second: usize = elements.next().unwrap();
 
     let direction = if first < second {
         Increasing
@@ -69,7 +84,6 @@ fn check_row(row: &str) -> usize {
 
     let mut previous = second;
     while let Some(n) = elements.next() {
-        let n: usize = n.parse().unwrap();
         if !direction.is_correct_order(previous, n) {
             return 0;
         }
@@ -89,6 +103,6 @@ mod tests {
     #[test]
     fn test () {
         let result = part_1("resource/test.txt");
-        assert_eq!(2, result);
+        assert_eq!(4, result);
     }
 }
