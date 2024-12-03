@@ -6,6 +6,7 @@
         <entryData>
           <resourceRoots>
             <path value="file://$PROJECT_DIR$/day2/resource" />
+            <path value="file://$PROJECT_DIR$/day3/resource" />
           </resourceRoots>
         </entryData>
       </entry>
