@@ -1,67 +1,60 @@
 import fs from 'fs'
 
-const isTest = true
+const isTest = false
 const input = fs.readFileSync(`resources/day12${isTest ? '.test' : ''}.txt`, 'utf-8')
 
 let memo = {};
 
-const reduceStartAndEnd = (conditionRecord, sig) => {
-  let currentRecord = [conditionRecord[0]]
-  let currentSig = sig
+function generateAll(record, sig, index) {
+  const key = record.join("") + index;
+  if (memo.hasOwnProperty(key)) return memo[key];
 
-  let previousChar = conditionRecord[0]
-  for(let i = 1; i < conditionRecord.length; i++){
-    if(previousChar === '.' && conditionRecord[i] === '.'){
-
-    } else {
-      previousChar = conditionRecord[i]
-      currentRecord.push(conditionRecord[i])
-    }
+  if (index >= record.length) {
+    const valid = check(record.join(""), sig) ? 1 : 0;
+    memo[key] = valid;
+    return valid;
   }
 
-  return {currentRecord, currentSig}
+  let possible = 0;
+
+  if (record[index] === "?") {
+    let dot_record = record.slice();
+    dot_record[index] = "."
+    let hash_record = record.slice();
+    hash_record[index] = "#";
+    possible += generateAll(dot_record, sig, index + 1)
+    possible += generateAll(hash_record, sig, index + 1)
+  } else {
+    possible += generateAll(record, sig, index + 1);
+  }
+  memo[key] = possible; // Cache the result before returning
+  return possible;
 }
 
-function generateAll(record, sig) {
-  let possibilities = 0
-  // Strip prefixing '.'
-  while (record.length > 0 && record[0] === '.') {
-    record = record.slice(1);
-  }
+const check = (record, sig) => {
+  record = record + ".";
+  let sig_index = 0;
 
-  // if record is empty but sig still has elements, we have an invalid possibility
-  if (record.length === 0 && sig.length !== 0){
-    return 0
-  }
+  let in_broken;
+  let broken_count = 0;
 
-  if (sig.length === 0){
-    // if sig is empty and there are no more known broken springs, return possibilities
-    if (record.includes('#')) {
-      return 0
+  for (let i = 0; i < record.length; i++) {
+    if (record[i] === "#") {
+      in_broken = true;
+      broken_count++;
     } else {
-      return 1
+      if (in_broken) {
+        if (sig_index >= sig.length || sig[sig_index] !== broken_count) {
+          return false;
+        }
+        sig_index++;
+      }
+      broken_count = 0;
+      in_broken = false;
     }
   }
 
-  let length_of_next_possible;
-  for (length_of_next_possible = 0; length_of_next_possible < record.length; length_of_next_possible++){
-    if (record[length_of_next_possible] === '.') {
-      break;
-    }
-  }
-
-  if (length_of_next_possible < sig[0]) {
-    let sub_record = record.slice(length_of_next_possible)
-    possibilities += generateAll(sub_record, sig)
-  } else {
-    let new_sig = sig.slice(1);
-
-    for (let i = 0; i + sig[0] <= length_of_next_possible; i++){
-      let new_record = record.slice(sig[0] + i + 1);
-      possibilities += generateAll(new_record, new_sig)
-    }
-  }
-  return possibilities;
+  return sig_index === sig.length;
 }
 
 const getUnfoldedRecords = (r) => {
@@ -82,26 +75,19 @@ const getUnfoldedSig = (s) => {
   return big
 }
 
-const map_to_possible_broken_map = (s) => {
-  s = s.replaceAll(/\.+/g, '.');
-
-
-}
-
-
 const getNumberOfVariations = (line) => {
+  memo = {}
   const parts = line.split(' ')
 
-  // const unfoldedRecord = getUnfoldedRecords(parts[0])
-  // const unfoldedSig = getUnfoldedSig(parts[1])
+  const unfoldedRecord = getUnfoldedRecords(parts[0])
+  const unfoldedSig = getUnfoldedSig(parts[1])
 
-  const unfoldedRecord = parts[0]
-  const unfoldedSig = parts[1]
+  // const unfoldedRecord = parts[0]
+  // const unfoldedSig = parts[1]
 
-  const conditionRecord = unfoldedRecord.replace(/^\.+|\.+$/g, '').split('')
+  const conditionRecord = unfoldedRecord.split('')
   const signature = unfoldedSig.split(',').map(Number)
-  const{currentRecord: trimmedRecord, currentSig: trimmedSig} = reduceStartAndEnd(conditionRecord, signature)
-  const varients =  generateAll(trimmedRecord, trimmedSig, 0)
+  const varients =  generateAll(conditionRecord, signature, 0)
   console.log(line, varients)
   return varients
 }
