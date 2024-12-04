@@ -3,6 +3,8 @@ import fs from 'fs'
 const isTest = true
 const input = fs.readFileSync(`resources/day12${isTest ? '.test' : ''}.txt`, 'utf-8')
 
+let memo = {};
+
 const reduceStartAndEnd = (conditionRecord, sig) => {
   let currentRecord = [conditionRecord[0]]
   let currentSig = sig
@@ -20,56 +22,46 @@ const reduceStartAndEnd = (conditionRecord, sig) => {
   return {currentRecord, currentSig}
 }
 
-function generateAll(record, sig, prefix) {
-  if(memo[prefix]) return memo[prefix]
-  if(sig.length === 0){
-    for(let i = 0; i < record.length; i++){
-      const recordChar = record[i]
-      const prefixChar = prefix[i]
-      if(recordChar === '?'){
+function generateAll(record, sig) {
+  let possibilities = 0
+  // Strip prefixing '.'
+  while (record.length > 0 && record[0] === '.') {
+    record = record.slice(1);
+  }
 
-      } else if (recordChar !== prefixChar){
-        return 0
-      }
-    }
-    return 1
-  } else if(prefix.length > 0){
-    for(let i = 0; i < prefix.length; i++){
-      const recordChar = record[i]
-      const prefixChar = prefix[i]
-      if(recordChar === '?'){
+  // if record is empty but sig still has elements, we have an invalid possibility
+  if (record.length === 0 && sig.length !== 0){
+    return 0
+  }
 
-      } else if (recordChar !== prefixChar){
-        return 0
-      }
+  if (sig.length === 0){
+    // if sig is empty and there are no more known broken springs, return possibilities
+    if (record.includes('#')) {
+      return 0
+    } else {
+      return 1
     }
   }
 
-
-  let maxRemaining = sig[0]
-  for(let i = 1; i < sig.length; i++){
-    maxRemaining += sig[i] + 1
+  let length_of_next_possible;
+  for (length_of_next_possible = 0; length_of_next_possible < record.length; length_of_next_possible++){
+    if (record[length_of_next_possible] === '.') {
+      break;
+    }
   }
 
-  let totalGood = 0
-  let currentCount = sig[0]
-  let nexSig = []
-  for(let i = 1; i < sig.length; i++){
-    nexSig.push(sig[i])
+  if (length_of_next_possible < sig[0]) {
+    let sub_record = record.slice(length_of_next_possible)
+    possibilities += generateAll(sub_record, sig)
+  } else {
+    let new_sig = sig.slice(1);
+
+    for (let i = 0; i + sig[0] <= length_of_next_possible; i++){
+      let new_record = record.slice(sig[0] + i + 1);
+      possibilities += generateAll(new_record, new_sig)
+    }
   }
-
-  for(let i = 0; (i + maxRemaining + prefix.length) <= record.length; i++){
-    let str = '.'.repeat(i) + '#'.repeat(currentCount)
-    if(nexSig.length > 0) str = str + '.'
-    let plusPrefix = prefix + str
-
-    if(nexSig.length === 0) plusPrefix = plusPrefix.padEnd(record.length, '.')
-
-    const good = generateAll(record, nexSig, plusPrefix)
-    totalGood = totalGood + good
-  }
-
-  return totalGood
+  return possibilities;
 }
 
 const getUnfoldedRecords = (r) => {
@@ -90,17 +82,26 @@ const getUnfoldedSig = (s) => {
   return big
 }
 
+const map_to_possible_broken_map = (s) => {
+  s = s.replaceAll(/\.+/g, '.');
+
+
+}
+
 
 const getNumberOfVariations = (line) => {
   const parts = line.split(' ')
 
-  const unfoldedRecord = getUnfoldedRecords(parts[0])
-  const unfoldedSig = getUnfoldedSig(parts[1])
+  // const unfoldedRecord = getUnfoldedRecords(parts[0])
+  // const unfoldedSig = getUnfoldedSig(parts[1])
+
+  const unfoldedRecord = parts[0]
+  const unfoldedSig = parts[1]
 
   const conditionRecord = unfoldedRecord.replace(/^\.+|\.+$/g, '').split('')
   const signature = unfoldedSig.split(',').map(Number)
   const{currentRecord: trimmedRecord, currentSig: trimmedSig} = reduceStartAndEnd(conditionRecord, signature)
-  const varients =  generateAll(trimmedRecord, trimmedSig, '')
+  const varients =  generateAll(trimmedRecord, trimmedSig, 0)
   console.log(line, varients)
   return varients
 }
