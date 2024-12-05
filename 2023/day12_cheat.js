@@ -34,10 +34,10 @@ for (let line of data) {
 
     for (let sig_index = 0; sig_index < sig.length; sig_index++) {
         for (let record_index = 0; record_index < record.length; record_index++) {
-            let currentCount = 0;
+            let possibilities = 0;
 
             if (record[record_index] !== '#') {
-                currentCount += countPaths(record_index - 1, sig_index);
+                possibilities += countPaths(record_index - 1, sig_index);
             }
 
             if (sig_index > 0) {
@@ -54,11 +54,11 @@ for (let line of data) {
                 }
 
                 if (doCount) {
-                    currentCount += countPaths(record_index - sig[sig_index] - 1, sig_index - 1);
+                    possibilities += countPaths(record_index - sig[sig_index] - 1, sig_index - 1);
                 }
             }
 
-            memo[record_index][sig_index] = currentCount;
+            memo[record_index][sig_index] = possibilities;
         }
     }
 
