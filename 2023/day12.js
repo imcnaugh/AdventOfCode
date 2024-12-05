@@ -1,62 +1,41 @@
 import fs from 'fs'
 
-const isTest = false
+const isTest = true
 const input = fs.readFileSync(`resources/day12${isTest ? '.test' : ''}.txt`, 'utf-8')
 
 let memo = {};
 
-function generateAll(record, sig, index) {
-  const key = record.join("") + index;
-  if (memo.hasOwnProperty(key)) return memo[key];
-
-  if (index >= record.length) {
-    const valid = check(record.join(""), sig) ? 1 : 0;
-    memo[key] = valid;
-    return valid;
+function generateAll(record, sig, record_index, sig_index, curr_dam_length, possible) {
+  if (record.length === record_index && sig.length === sig_index) {
+    return possible;
   }
-
-  let possible = 0;
-
-  if (record[index] === "?") {
-    let dot_record = record.slice();
-    dot_record[index] = "."
-    let hash_record = record.slice();
-    hash_record[index] = "#";
-    possible += generateAll(dot_record, sig, index + 1)
-    possible += generateAll(hash_record, sig, index + 1)
-  } else {
-    possible += generateAll(record, sig, index + 1);
+  if (record_index >= record.length || sig_index >= sig.length) {
+    return 0;
   }
-  memo[key] = possible; // Cache the result before returning
-  return possible;
-}
-
-const check = (record, sig) => {
-  record = record + ".";
-  let sig_index = 0;
-
-  let in_broken;
-  let broken_count = 0;
-
-  for (let i = 0; i < record.length; i++) {
-    if (record[i] === "#") {
-      in_broken = true;
-      broken_count++;
-    } else {
-      if (in_broken) {
-        if (sig_index >= sig.length || sig[sig_index] !== broken_count) {
-          return false;
-        }
-        sig_index++;
-      }
-      broken_count = 0;
-      in_broken = false;
+  
+  if (record[record_index] === ".") {
+    let possible_positions = curr_dam_length - sig[sig_index] + 1;
+    if (possible_positions < 0) return 0;
+    return generateAll(record, sig, record_index + 1, sig_index + 1, 0, possible + possible_positions)
+  } else if (record[record_index] === "#") {
+    let next_not = record_index;
+    while (next_not < record.length && record[next_not] === "#") {
+      next_not++;
     }
+    return generateAll(record, sig, record_index + next_not, sig_index, curr_dam_length + next_not, possible)
+  } else if (record[record_index] === "?") {
+    let total = 0;
+    let dot_record = record.slice()
+    dot_record[record_index] = "."
+    let hash_record = record.slice()
+    hash_record[record_index] = "#"
+
+    const prevChar = record_index > 0 ? record[record_index - 1] : null;
+    total += generateAll(dot_record, sig, record_index + 1, (prevChar === '#'? sig_index + 1: sig_index), 0, possible)
+    total += generateAll(hash_record, sig, record_index + 1, sig_index, curr_dam_length + 1, possible)
+    return total;
   }
-
-  return sig_index === sig.length;
 }
-
 const getUnfoldedRecords = (r) => {
   let big = r
   for(let i = 0; i < 4; i++){
@@ -79,15 +58,24 @@ const getNumberOfVariations = (line) => {
   memo = {}
   const parts = line.split(' ')
 
-  const unfoldedRecord = getUnfoldedRecords(parts[0])
-  const unfoldedSig = getUnfoldedSig(parts[1])
+  // const unfoldedRecord = getUnfoldedRecords(parts[0])
+  // const unfoldedSig = getUnfoldedSig(parts[1])
 
-  // const unfoldedRecord = parts[0]
-  // const unfoldedSig = parts[1]
+  const unfoldedRecord = parts[0]
+  const unfoldedSig = parts[1]
 
   const conditionRecord = unfoldedRecord.split('')
+
+  conditionRecord.push('.');
+
+
+// Remove all '.' from the start of conditionRecord if they exist
+  while (conditionRecord[0] === '.') {
+    conditionRecord.shift();
+  }
+  
   const signature = unfoldedSig.split(',').map(Number)
-  const varients =  generateAll(conditionRecord, signature, 0)
+  const varients =  generateAll(conditionRecord, signature, 0, 0 , 0, 0)
   console.log(line, varients)
   return varients
 }
