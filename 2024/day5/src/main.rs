@@ -55,9 +55,40 @@ fn part_1(path: &str) -> usize {
         }
 
         if in_correct_order {
-            println!("{:?}", po);
-            let mid_index = po.len() / 2;
-            result += po.get(mid_index).unwrap();
+            // println!("{:?}", po);
+            // let mid_index = po.len() / 2;
+            // result += po.get(mid_index).unwrap();
+        } else {
+            let mut ordered_pages: Vec<usize> = Vec::new();
+            let mut remaining_pages : HashSet<usize> = po.into_iter().collect();
+
+            loop {
+                if remaining_pages.is_empty() {
+                    break;
+                }
+
+                for page in &remaining_pages{
+                    let deps = rules.get(page);
+                    let mut next = true;
+                    if let Some(deps) = deps {
+                        for d in deps {
+                            if remaining_pages.contains(d) {
+                                next = false;
+                            }
+                        }
+                    }
+
+                    if next {
+                        ordered_pages.push(*page);
+                    }
+                }
+
+                remaining_pages.remove(ordered_pages.last().unwrap());
+            }
+
+
+            let mid_index = ordered_pages.len() / 2;
+            result += ordered_pages.get(mid_index).unwrap();
         }
     }
 
@@ -78,5 +109,11 @@ mod tests {
     fn part_1_test(){
         let result = part_1("resource/test.txt");
         assert_eq!(143, result);
+    }
+
+    #[test]
+    fn part_2_test() {
+        let result = part_1("resource/test.txt");
+        assert_eq!(123, result);
     }
 }
