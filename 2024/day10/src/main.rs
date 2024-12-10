@@ -3,7 +3,7 @@ use std::fs;
 
 fn main() {
     let input = get_file("resource/input.txt");
-    let result = part_1(input);
+    let result = part_2(input);
     println!("{result}");
 }
 
@@ -53,7 +53,35 @@ fn part_1(input: String) -> i32 {
 }
 
 fn part_2(input: String) -> i32 {
-    todo!()
+    let grid = build_grid(input);
+    let mut result = 0;
+    for row_index in 0..grid.len() {
+        for col_index in 0..grid[row_index].len() {
+            let item = grid[row_index][col_index];
+            if item == 0 {
+                result += dfs_no_map(&grid, (row_index as i32, col_index as i32))
+            }
+        }
+    }
+    result
+}
+
+fn dfs_no_map(grid: &Vec<Vec<i32>>, current: (i32, i32)) -> i32 {
+    let current_value = grid[current.0 as usize][current.1 as usize];
+
+    if current_value == 9 {
+        return 1
+    }
+
+    let directions = [(1i32,0i32), (0,1), (-1,0), (0, -1)];
+
+    let mut total = 0;
+    for dir in directions {
+        if grid[(current.0 + dir.0) as usize][(current.1 + dir.1) as usize] == current_value + 1{
+            total += dfs_no_map(grid, (current.0 + dir.0, current.1 + dir.1));
+        }
+    }
+    total
 }
 
 fn dfs(grid: &Vec<Vec<i32>>, current: (i32, i32), visited_summits : &mut HashSet<(i32, i32)>) -> i32 {
