@@ -3,7 +3,7 @@ use std::fs;
 
 fn main() {
     let input = read_file("resource/input.txt");
-    let result = part_1(input);
+    let result = part_2(input);
     println!("{result}")
 }
 
@@ -96,7 +96,107 @@ fn is_out_of_bounds(grid: &Vec<Vec<String>>, pos: (i32, i32)) -> bool {
 }
 
 fn part_2(input: String) -> usize {
-    todo!()
+
+    let grid = make_grid(input.clone());
+    let mut seen: HashSet<(usize, usize)> = HashSet::new();
+
+    let mut regions: HashSet<(i32, Vec<(usize, usize)>)> = HashSet::new();
+
+    for col_index in 0..grid.len() {
+        for row_index in 0..grid[col_index].len() {
+            if seen.contains(&(col_index, row_index)) {
+                continue;
+            }
+            &seen.insert((col_index, row_index));
+            let mut region_seen: HashSet<(usize, usize)> = HashSet::new();
+            region_seen.insert((col_index, row_index));
+            let plot = flood_fill(&grid, &mut region_seen, (col_index, row_index));
+
+            let vec_region: Vec<(usize, usize)> = region_seen.clone().into_iter().collect();
+            regions.insert((plot.0, vec_region));
+
+            seen.extend(region_seen);
+        }
+    }
+
+
+    let mut result = 0;
+
+    for (area, points) in regions {
+        let mut previous_index = Vec::<usize>::new();
+        let mut indexes = Vec::<usize>::new();
+
+        let mut pre_in_index = Vec::<usize>::new();
+        let mut pre_out_index = Vec::<usize>::new();
+        let mut in_index = Vec::<usize>::new();
+        let mut out_index = Vec::<usize>::new();
+
+        let mut sides: usize = 0;
+
+        for (col_index, line) in input.lines().enumerate() {
+            indexes.clear();
+            in_index.clear();
+            out_index.clear();
+            let mut inside_region = false;
+
+
+            for (row_index, c) in line.chars().map(|c| c.to_string()).enumerate() {
+                if !inside_region && points.contains(&(col_index, row_index)) {
+                    in_index.push(row_index);
+                    inside_region = true
+                }
+                if inside_region && !points.contains(&(col_index, row_index)) {
+                    out_index.push(row_index);
+                    inside_region = false
+                }
+            }
+            if inside_region {
+                out_index.push(line.len());
+            }
+
+            sides += in_index.iter().map(|i| -> usize {
+                if pre_in_index.contains(i){
+                    0usize
+                } else {
+                    1
+                }
+            }).sum::<usize>();
+            sides += out_index.iter().map(|i| -> usize {
+                if pre_out_index.contains(i){
+                    0usize
+                } else {
+                    1
+                }
+            }).sum::<usize>();
+
+            sides += pre_in_index.iter().map(|i| -> usize {
+                if in_index.contains(i) {
+                    0usize
+                } else {
+                    1
+                }
+            }).sum::<usize>();
+            sides += pre_out_index.iter().map(|i| -> usize {
+                if out_index.contains(i) {
+                    0usize
+                } else {
+                    1
+                }
+            }).sum::<usize>();
+
+            previous_index = indexes.clone();
+            pre_in_index = in_index.clone();
+            pre_out_index = out_index.clone();
+        }
+        sides += in_index.len();
+        sides += out_index.len();
+        let cost = sides as i32 * area;
+
+        println!("Area: {area}, Sides: {sides}, Cost: {cost}");
+
+        result += cost
+    }
+    result as usize
 }
 
 #[cfg(test)]
@@ -114,6 +214,6 @@ mod tests {
     fn test_part_2() {
         let input = read_file("resource/test.txt");
         let result = part_2(input);
-        assert_eq!(0, result);
+        assert_eq!(1206, result);
     }
 }
