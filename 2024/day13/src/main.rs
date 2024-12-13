@@ -38,8 +38,8 @@ fn parse_input_part_2(input: String) -> Vec<Machine> {
     parts.map(|machine_params| -> Machine {
         let re = Regex::new(r"Button A: X\+(?<a_x>\d+), Y\+(?<a_y>\d+)\nButton B: X\+(?<b_x>\d+), Y\+(?<b_y>\d+)\nPrize: X=(?<p_x>\d+), Y=(?<p_y>\d+)").unwrap();
         let captures = re.captures(machine_params).unwrap();
-        let p_x: usize = format!("10000000000000{}", &captures["p_x"]).parse().unwrap();
-        let p_y: usize = format!("10000000000000{}", &captures["p_y"]).parse().unwrap();
+        let p_x: usize = &captures["p_x"].parse::<usize>().unwrap() + 10000000000000;
+        let p_y: usize = &captures["p_y"].parse::<usize>().unwrap() + 10000000000000;
 
         Machine {
             a_movement: (captures["a_x"].parse::<usize>().unwrap(), captures["a_y"].parse::<usize>().unwrap()),
@@ -50,81 +50,62 @@ fn parse_input_part_2(input: String) -> Vec<Machine> {
 }
 
 fn part_1(input: String) -> usize {
-    parse_input(input).iter().map(|m| -> usize {
-        get_minimum_to_prize_part_2(m).unwrap_or_else(|| 0)
-    }).sum()
-}
-
-fn get_minimum_to_prize(machine: &Machine) -> Option<usize> {
-    let mut b_presses: HashMap<(usize, usize), usize> = HashMap::new();
-
-    for presses in 0..100 {
-        let dist = (machine.b_movement.0 * presses, machine.b_movement.1 * presses);
-        b_presses.insert(dist, presses);
-    }
-
-    let mut minimum_cost: Option<usize> = None;
-    for a_pres_count in 0..100 {
-        let dist = (machine.a_movement.0 * a_pres_count, machine.a_movement.1 * a_pres_count);
-        if dist.0 > machine.prize.0 || dist.1 > machine.prize.1 {
-            continue;
-        }
-        let dist_to_prize = (machine.prize.0 - dist.0, machine.prize.1 - dist.1);
-        if let Some(b_press_count) = b_presses.get(&dist_to_prize){
-            let cost = (a_pres_count * 3) + b_press_count;
-            match minimum_cost {
-                Some(cur_min) => {
-                    if cur_min > cost {
-                        minimum_cost = Some(cost);
-                    }
-                },
-                None => minimum_cost = Some(cost),
-            }
-        }
-    }
-
-    minimum_cost
-}
-
-
-fn get_minimum_to_prize_part_2(machine: &Machine) -> Option<usize> {
-    let mut minimum_cost: Option<usize> = None;
-    let eq = |b: usize| -> bool {
-        let top: usize = machine.prize.0 - (machine.b_movement.0 * b);
-        (top % machine.a_movement.0) == 0
-    };
-
-    let mut cur_b = 0;
-    loop {
-        if (machine.b_movement.0 * cur_b) > machine.prize.0 {
-            break;
-        }
-
-        if eq(cur_b) {
-            let a_press = (machine.prize.0 - (machine.b_movement.0 * cur_b)) / machine.a_movement.0;
-            if machine.prize.1 == (machine.a_movement.1 * a_press) + (machine.b_movement.1 * cur_b) {
-                let cost = (a_press * 3) + cur_b;
-                match minimum_cost {
-                    None => minimum_cost = Some(cost),
-                    Some(cur_min) => {
-                        if cur_min > cost {
-                            minimum_cost = Some(cost)
-                        }
-                    }
-                }
-            }
-        }
-
-        cur_b += 1;
-    }
-    minimum_cost
+    parse_input(input).iter().map(|m| get_minimum_to_prize_part_2(m)).sum()
 }
 
 fn part_2(input: String) -> usize {
-    parse_input_part_2(input).iter().map(|m| -> usize {
-        println!("next");
-        get_minimum_to_prize_part_2(m).unwrap_or_else(|| 0)
-    }).sum()
+    parse_input_part_2(input).iter().map(|m| get_minimum_to_prize_part_2(m)).sum()
+}
+
+
+fn get_minimum_to_prize_part_2(machine: &Machine) -> usize {
+    let a_slope = machine.a_movement.1 as f64 / machine.a_movement.0 as f64;
+    let a_y_intercept = machine.prize.1 as f64 - (a_slope * machine.prize.0 as f64);
+
+    let b_slope = machine.b_movement.1 as f64 / machine.b_movement.0 as f64;
+
+    let prize_slope = machine.prize.1 as f64 / machine.prize.0 as f64;
+
+    if prize_slope == a_slope {
+        return (machine.prize.0 / machine.a_movement.0) * 3;
+    }
+    if prize_slope == b_slope {
+        return machine.prize.0 / machine.b_movement.0;
+    }
+
+    let x_intercept = a_y_intercept / (b_slope - a_slope);
+    let b_count = (x_intercept / machine.b_movement.0 as f64) as usize;
+    let a_count = ((machine.prize.0 as f64 - x_intercept) / machine.a_movement.0 as f64) as usize;
+
+    let x = (machine.a_movement.0 * a_count) + (machine.b_movement.0 * b_count);
+    let y = (machine.a_movement.1 * a_count) + (machine.b_movement.1 * b_count);
+
+    if machine.prize.0 == x && machine.prize.1 == y {
+        (a_count * 3) + b_count
+    } else {
+
+
+        let x_ao = (machine.a_movement.0 * (a_count + 1)) + (machine.b_movement.0 * b_count);
+        let y_ao = (machine.a_movement.1 * (a_count + 1)) + (machine.b_movement.1 * b_count);
+
+        let x_bo = (machine.a_movement.0 * a_count) + (machine.b_movement.0 * (b_count + 1));
+        let y_bo = (machine.a_movement.1 * a_count) + (machine.b_movement.1 * (b_count + 1));
+
+        let x_b = (machine.a_movement.0 * (a_count + 1)) + (machine.b_movement.0 * (b_count + 1));
+        let y_b = (machine.a_movement.1 * (a_count + 1)) + (machine.b_movement.1 * (b_count + 1));
+
+        if machine.prize.0 == x_ao && machine.prize.1 == y_ao {
+            return ((a_count + 1) * 3) + b_count
+        }
+        if machine.prize.0 == x_bo && machine.prize.1 == y_bo {
+            return (a_count * 3) + b_count + 1
+        }
+        if machine.prize.0 == x_b && machine.prize.1 == y_b {
+            return ((a_count + 1) * 3) + b_count + 1
+        }
+
+        0
+    }
 }
 
 #[cfg(test)]
@@ -148,12 +129,12 @@ mod tests {
     #[test]
     fn test_get_minimum_to_prize() {
         let machine = Machine{
-            a_movement: (94, 34),
-            b_movement: (22, 67),
-            prize: (8400, 5400)
+            a_movement: (17, 86),
+            b_movement: (84, 37),
+            prize: (7870, 6450)
         };
         let min_cost = get_minimum_to_prize_part_2(&machine);
 
-        assert_eq!(280, min_cost.unwrap())
+        assert_eq!(200, min_cost)
     }
 }
