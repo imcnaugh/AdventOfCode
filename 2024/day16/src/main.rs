@@ -31,7 +31,7 @@ fn try_update(pos: (usize, usize), grid: &mut Vec<Vec<Space>>, new_steps: usize,
         Space::Tile { distance } => {
             match distance {
                 None => true,
-                Some((old_size, old_dir)) => {
+                Some((old_size, ..)) => {
                     let mut mod_size = old_size + 1000;
                     if mod_size > new_steps{
                         add_back_to_unvisited = true;
@@ -43,7 +43,7 @@ fn try_update(pos: (usize, usize), grid: &mut Vec<Vec<Space>>, new_steps: usize,
             }
         }
     };
-    
+
     if should_update {
         grid[pos.1][pos.0] = Space::Tile { distance: Some((new_steps, new_dir)) }
     }
@@ -69,14 +69,16 @@ fn read_file(path: &str) -> String {
     fs::read_to_string(path).unwrap()
 }
 
-fn parse_input(input: String) -> (Vec<Vec<Space>>, (usize, usize)) {
+fn parse_input(input: String) -> (Vec<Vec<Space>>, (usize, usize), (usize, usize)) {
     let mut end = (0,0);
+    let mut start = (0,0);
 
     let grid = input.lines().enumerate().map(|(row_index, line)| -> Vec<Space> {
         line.chars().enumerate().map(|(col_index, c)| -> Space {
             match c {
                 '.' => Space::Tile {distance: None},
                 'S' => {
+                    start = (col_index, row_index);
                     Space::Tile {distance: Some((0, Dir::E))}
                 },
                 'E' => {
@@ -88,7 +90,7 @@ fn parse_input(input: String) -> (Vec<Vec<Space>>, (usize, usize)) {
         }).collect()
     }).collect();
 
-    (grid, end)
+    (grid, start, end)
 }
 
 fn get_min_in_un_visited(nodes: &HashSet<(usize, usize)>, grid: &Vec<Vec<Space>>) -> Option<(usize, usize)> {
@@ -119,7 +121,7 @@ fn get_min_in_un_visited(nodes: &HashSet<(usize, usize)>, grid: &Vec<Vec<Space>>
 }
 
 fn part_1(input: String) -> usize {
-    let (mut grid, end_pos) = parse_input(input);
+    let (mut grid,start_pos, end_pos) = parse_input(input);
     let mut un_visited_nodes: HashSet<(usize, usize)> = grid.iter().enumerate()
         .map(|(row_index, row)| -> Vec<(usize, usize)>{
             let mut r: Vec<(usize, usize)> = Vec::new();
@@ -173,110 +175,72 @@ fn part_1(input: String) -> usize {
     }
 
     let end = &grid[end_pos.1][end_pos.0];
+    let mut max = 0;
     match end {
-        Space::Tile { distance: Some(info)} => info.0,
-        _ => 0
+
+        Space::Tile { distance: Some(info)} => {
+            max = info.0;
+            println!("part 1: {}", info.0)
+        },
+        _ => ()
     };
 
     let mut seen_spaces: HashSet<(usize, usize)> = HashSet::new();
-    count_backwards(&grid, (end_pos.0, end_pos.1), &mut seen_spaces)
+    go_back(&grid, end_pos, &mut seen_spaces);
+
+    print_grid(&grid, &seen_spaces);
+
+    seen_spaces.len() + 1
 }
 
-fn count_backwards(grid: &Vec<Vec<Space>>, cur_pos: (usize, usize), seen_spaces: &mut HashSet<(usize, usize)>) -> usize {
-    if seen_spaces.contains(&cur_pos) {
-        return 0
+fn go_back(grid: &Vec<Vec<Space>>, cp: (usize, usize), seen: &mut HashSet<(usize, usize)>) {
+    if seen.contains(&cp){
+        return
     }
-    seen_spaces.insert(cur_pos);
-    let space = &grid[cur_pos.1][cur_pos.0];
-    let mut total = 1;
-    if let Space::Tile { distance: Some(info) } = space {
-        if info.0 != 0 {
-            match info.1 {
-                Dir::N => {
-                    if let Space::Tile {distance: Some(i)} = &grid[cur_pos.1-1][cur_pos.0] {
-                        if i.0 < info.0 {
-                            total += count_backwards(grid, (cur_pos.0, cur_pos.1-1), seen_spaces);
-                        }
-                    }
+    seen.insert(cp);
 
-                    if let Space::Tile {distance: Some (i)} = &grid[cur_pos.1][cur_pos.0-1] {
-                        if i.0 < info.0 {
-                            total += count_backwards(grid, (cur_pos.0-1, cur_pos.1), seen_spaces);
-                        }
-                    }
+    let dirs = vec![(cp.0-1,cp.1), (cp.0+1, cp.1), (cp.0, cp.1+1), (cp.0,cp.1-1)];
 
-                    if let Space::Tile {distance: Some (i)} = &grid[cur_pos.1][cur_pos.0+1] {
-                        if i.0 < info.0 {
-                            total += count_backwards(grid, (cur_pos.0+1, cur_pos.1), seen_spaces);
-                        }
-                    }
-                }
-                Dir::S => {
-                    if let Space::Tile {distance: Some(i)} = &grid[cur_pos.1+1][cur_pos.0] {
-                        if i.0 < info.0 {
-                            total += count_backwards(grid, (cur_pos.0, cur_pos.1+1), seen_spaces);
-                        }
-                    }
+    for d in dirs {
+        let mut cur = 0;
+        if let Space::Tile {distance: Some(c)} = &grid[cp.1][cp.0]{
+            cur = c.0;
+        }
 
-                    if let Space::Tile {distance: Some (i)} = &grid[cur_pos.1][cur_pos.0-1] {
-                        if i.0 < info.0 {
-                            total += count_backwards(grid, (cur_pos.0-1, cur_pos.1), seen_spaces);
-                        }
-                    }
+        if cur == 0 {
+            return
+        }
 
-                    if let Space::Tile {distance: Some (i)} = &grid[cur_pos.1][cur_pos.0+1] {
-                        if i.0 < info.0 {
-                            total += count_backwards(grid, (cur_pos.0+1, cur_pos.1), seen_spaces);
-                        }
-                    }
-                }
-                Dir::E => {
-                    if let Space::Tile {distance: Some(i)} = &grid[cur_pos.1][cur_pos.0-1] {
-                        if i.0 == info.0 - 1 {
-                            total += count_backwards(grid, (cur_pos.0-1, cur_pos.1), seen_spaces);
-                        }
-                    }
+        if let Space::Tile {distance: Some(idk)} = &grid[d.1][d.0] {
+            if cur - 1 == idk.0 || cur - 1001 == idk.0 || cur + 1001 == idk.0  {
+                go_back(grid, d, seen);
+            }
+        }
+    }
+}
 
-                    if let Space::Tile {distance: Some (i)} = &grid[cur_pos.1+1][cur_pos.0] {
-                        if i.0 < info.0 {
-                            total += count_backwards(grid, (cur_pos.0, cur_pos.1+1), seen_spaces);
-                        }
-                    }
 
-                    if let Space::Tile {distance: Some (i)} = &grid[cur_pos.1+1][cur_pos.0] {
-                        if i.0 < info.0 {
-                            total += count_backwards(grid, (cur_pos.0, cur_pos.1+1), seen_spaces);
-                        }
-                    }
-                }
-                Dir::W => {
-                    if let Space::Tile {distance: Some(i)} = &grid[cur_pos.1][cur_pos.0+1] {
-                        if i.0 < info.0 {
-                            total += count_backwards(grid, (cur_pos.0+1, cur_pos.1), seen_spaces);
-                        }
-                    }
-
-                    if let Space::Tile {distance: Some (i)} = &grid[cur_pos.1-1][cur_pos.0] {
-                        if i.0 < info.0 {
-                            total += count_backwards(grid, (cur_pos.0, cur_pos.1-1), seen_spaces);
-                        }
-                    }
-
-                    if let Space::Tile {distance: Some (i)} = &grid[cur_pos.1+1][cur_pos.0] {
-                        if i.0 < info.0 {
-                            total += count_backwards(grid, (cur_pos.0, cur_pos.1+1), seen_spaces);
+fn print_grid(grid: &Vec<Vec<Space>>, seen: &HashSet<(usize, usize)>) {
+    for (r_i, r) in grid.iter().enumerate() {
+        for (c_i, s) in r.iter().enumerate() {
+            if seen.contains(&(c_i, r_i)) {
+                print!(".")
+            } else {
+                match s {
+                    Space::Wall => print!("#"),
+                    Space::Tile { distance } => {
+                        match distance {
+                            None => print!(" "),
+                            Some(_) => print!(" ")
                         }
                     }
                 }
             }
         }
+        println!()
     }
-    total
 }
 
-fn part_2(input: String) -> usize {
-    todo!()
-}
 
 #[cfg(test)]
 mod tests {
@@ -286,13 +250,6 @@ mod tests {
     fn test_part_1() {
         let input = read_file("resource/test.txt");
         let result = part_1(input);
-        assert_eq!(0, result);
-    }
-
-    #[test]
-    fn test_part_2() {
-        let input = read_file("resource/test.txt");
-        let result = part_2(input);
-        assert_eq!(0, result);
+        assert_eq!(45, result);
     }
 }
