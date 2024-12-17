@@ -193,11 +193,7 @@ fn part_1(input: String) -> usize {
         if try_push(&mut grid, cur_pos, &dir) {
             cur_pos = get_next_pos(cur_pos, &dir);
         }
-
-        // println!("{:?}", dir);
-        // print_wh(&grid, cur_pos);
     }
-
     calc_gps(&grid)
 }
 
