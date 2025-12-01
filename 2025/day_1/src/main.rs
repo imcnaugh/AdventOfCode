@@ -4,7 +4,7 @@ fn main() {
     println!("Part 1: {}", result);
 }
 
-fn part_1(input: &str) -> usize {
+fn part_1(input: &str) -> String {
     todo!()
 }
 
@@ -16,6 +16,6 @@ mod tests {
     fn test_part_1() {
         let input = include_str!("../resource/test.txt");
         let result = part_1(&input);
-        assert_eq!(result, 12);
+        assert_eq!(result, "");
     }
 }
