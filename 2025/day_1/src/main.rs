@@ -16,24 +16,16 @@ fn part_1(input: &str) -> String {
     let mut total_zero = 0;
 
     instructions.iter().for_each(|instruction| {
-        match instruction.direction {
-            Direction::Left => {
-                let next = current - instruction.distance;
-                if next < min {
-                    current = max + next;
-                } else {
-                    current = next;
-                }
-            }
-            Direction::Right => {
-                let next = current + instruction.distance;
-                if next >= max {
-                    current = (max + next) % max;
-                } else {
-                    current = next;
-                }
-            }
+        current = match instruction.direction {
+            Direction::Left => current - instruction.distance,
+            Direction::Right => current + instruction.distance,
+        };
+
+        current %= max;
+        if current < min {
+            current += max;
         }
+
         if current == 0 {
             total_zero += 1;
         }
@@ -45,7 +37,7 @@ fn part_1(input: &str) -> String {
 fn part_2(input: &str) -> String {
     let instructions = input
         .lines()
-        .map(|line| Instruction::build_part_2(line))
+        .map(|line| Instruction::build(line))
         .collect::<Vec<Instruction>>();
     let max = 100;
     let min = 0;
@@ -55,30 +47,32 @@ fn part_2(input: &str) -> String {
 
     instructions.iter().for_each(|instruction| {
         let total_spins = instruction.distance / max;
-        let distance = instruction.distance % max;
         total_zero += total_spins;
 
-        match instruction.direction {
+        let simplified_distance = instruction.distance % max;
+
+        current = match instruction.direction {
             Direction::Left => {
-                let mut next = current - distance;
-                if next < min {
-                    if current != 0 {
+                let tmp = current - simplified_distance;
+                if tmp < min {
+                    if current != min {
                         total_zero += 1;
                     }
-                    next = max + next;
+                    tmp + max
+                } else {
+                    tmp
                 }
-                current = next;
             }
             Direction::Right => {
-                let next = current + distance;
-                if next > max {
+                let tmp = current + simplified_distance;
+                if tmp > max {
                     total_zero += 1;
                 }
-                let next = next % max;
-                current = next;
+                tmp % max
             }
-        }
-        if current == 0 {
+        };
+
+        if current == min {
             total_zero += 1;
         }
     });
@@ -98,22 +92,6 @@ struct Instruction {
 
 impl Instruction {
     fn build(input: &str) -> Self {
-        let direction = &input[0..1];
-        let distance = &input[1..];
-        let i = distance.len() as i32 - 2;
-        let i = if i <= 0 { 0 } else { i };
-        let distance = &distance[i as usize..];
-        Self {
-            direction: match direction {
-                "L" => Direction::Left,
-                "R" => Direction::Right,
-                _ => unreachable!(),
-            },
-            distance: distance.parse().unwrap(),
-        }
-    }
-
-    fn build_part_2(input: &str) -> Self {
         let direction = &input[0..1];
         let distance = &input[1..];
         Self {
@@ -139,9 +117,23 @@ mod tests {
     }
 
     #[test]
+    fn actual_part_1() {
+        let input = include_str!("../resource/input.txt");
+        let result = part_1(&input);
+        assert_eq!(result, "969");
+    }
+
+    #[test]
     fn test_part_2() {
         let input = include_str!("../resource/test.txt");
         let result = part_2(&input);
         assert_eq!(result, "6");
+    }
+
+    #[test]
+    fn actual_part_2() {
+        let input = include_str!("../resource/input.txt");
+        let result = part_2(&input);
+        assert_eq!(result, "5887");
     }
 }
