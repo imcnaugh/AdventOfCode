@@ -121,10 +121,24 @@ impl ThreeBitMachine {
 
 
 fn main() {
-    let input = read_file("resource/input.txt");
-    let mac = parse_input(input);
-    let result = part_1(mac);
-    println!("{result}");
+    let program_str = String::from("2,4,1,1,7,5,0,3,4,7,1,6,5,5,3,0");
+    let program: Vec<u8> = program_str.split(",").map(|i| i.parse::<u8>().unwrap()).collect();
+
+
+    for a in 0..200000000000000 {
+        let a = 100000000000000 + a;
+
+        if a % 10000000 == 0 {
+            println!("{a}");
+        }
+
+        let mac = ThreeBitMachine::new(a, 0, 0, program.clone());
+        let result = part_1(mac);
+        if result == program_str {
+            println!("Found: {a}");
+            break;
+        }
+    }
 }
 
 fn read_file(path: &str) -> String {
