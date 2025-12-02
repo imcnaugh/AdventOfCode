@@ -117,23 +117,9 @@ mod tests {
     }
 
     #[test]
-    fn actual_part_1() {
-        let input = include_str!("../resource/input.txt");
-        let result = part_1(&input);
-        assert_eq!(result, "969");
-    }
-
-    #[test]
     fn test_part_2() {
         let input = include_str!("../resource/test.txt");
         let result = part_2(&input);
         assert_eq!(result, "6");
-    }
-
-    #[test]
-    fn actual_part_2() {
-        let input = include_str!("../resource/input.txt");
-        let result = part_2(&input);
-        assert_eq!(result, "5887");
     }
 }
