@@ -20,3 +20,4 @@ day*/Cargo.lock
 # End of https://www.toptal.com/developers/gitignore/api/rust
 
 day*/.idea
+day*/resource/input.txt
