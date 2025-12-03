@@ -17,8 +17,8 @@ fn parse_input(input: &str) -> Vec<Vec<usize>> {
         .lines()
         .map(|line| {
             line.chars()
-                .map(|C| C.to_digit(10).unwrap() as usize)
-                .collect::<Vec<usize>>()
+                .map(|c| c.to_digit(10).unwrap() as usize)
+                .collect()
         })
         .collect()
 }
@@ -26,21 +26,14 @@ fn parse_input(input: &str) -> Vec<Vec<usize>> {
 fn max(row: &Vec<usize>, output_len: usize) -> usize {
     let mut buffer: Vec<Option<usize>> = vec![None; output_len];
 
-    row.iter().enumerate().for_each(|(i, &n)| {
-        let remaining = row.len() - i;
-        let buffer_start_index = buffer.len() - remaining.min(buffer.len());
-        let index_to_modify = buffer[buffer_start_index..].iter().position(|&bv| {
-            if let Some(buffer_value) = bv {
-                n > buffer_value
-            } else {
-                true
-            }
-        });
-        if let Some(index) = index_to_modify {
-            buffer[index + buffer_start_index] = Some(n);
-            for x in index + 1 + buffer_start_index..buffer.len() {
-                buffer[x] = None;
-            }
+    row.iter().enumerate().for_each(|(row_index, &row_value)| {
+        let buffer_start_index = buffer.len() - (row.len() - row_index).min(buffer.len());
+        if let Some(b_index) = buffer[buffer_start_index..]
+            .iter()
+            .position(|&bv| bv.map_or(true, |buffer_value| row_value > buffer_value))
+        {
+            buffer[b_index + buffer_start_index] = Some(row_value);
+            buffer[b_index + buffer_start_index + 1..].fill(None);
         }
     });
 
