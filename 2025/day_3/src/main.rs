@@ -5,26 +5,26 @@ fn main() {
 }
 
 fn part_1(input: &str) -> usize {
-    parse_input(input).iter().map(|row| max(row, 2)).sum()
+    parse_input(input).iter().map(|row| find_max_joltage(row, 2)).sum()
 }
 
 fn part_2(input: &str) -> usize {
-    parse_input(input).iter().map(|row| max(row, 12)).sum()
+    parse_input(input).iter().map(|row| find_max_joltage(row, 12)).sum()
 }
 
-fn parse_input(input: &str) -> Vec<Vec<usize>> {
+fn parse_input(input: &str) -> Vec<Vec<u8>> {
     input
         .lines()
         .map(|line| {
             line.chars()
-                .map(|c| c.to_digit(10).unwrap() as usize)
+                .map(|c| c.to_digit(10).unwrap() as u8)
                 .collect()
         })
         .collect()
 }
 
-fn max(row: &Vec<usize>, output_len: usize) -> usize {
-    let mut buffer: Vec<Option<usize>> = vec![None; output_len];
+fn find_max_joltage(row: &Vec<u8>, output_len: usize) -> usize {
+    let mut buffer: Vec<Option<u8>> = vec![None; output_len];
 
     row.iter().enumerate().for_each(|(row_index, &row_value)| {
         let buffer_start_index = buffer.len() - (row.len() - row_index).min(buffer.len());
@@ -39,10 +39,10 @@ fn max(row: &Vec<usize>, output_len: usize) -> usize {
 
     buffer
         .iter()
-        .map(|&v| v.unwrap().to_string())
-        .collect::<String>()
-        .parse::<usize>()
-        .unwrap()
+        .rev()
+        .enumerate()
+        .map(|(i, &v)| v.unwrap() as usize * 10_usize.pow(i as u32))
+        .sum()
 }
 
 #[cfg(test)]
@@ -58,7 +58,7 @@ mod tests {
     #[test]
     fn test_max() {
         let row = vec![8, 1, 9];
-        assert_eq!(89, max(&row, 2));
+        assert_eq!(89, find_max_joltage(&row, 2));
     }
 
     #[test]
