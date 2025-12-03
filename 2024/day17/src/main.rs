@@ -125,20 +125,10 @@ fn main() {
     let program: Vec<u8> = program_str.split(",").map(|i| i.parse::<u8>().unwrap()).collect();
 
 
-    for a in 0..200000000000000 {
-        let a = 100000000000000 + a;
+    let mac = ThreeBitMachine::new(247839002892474, 0, 0, program.clone());
+    let result = part_1(mac);
 
-        if a % 10000000 == 0 {
-            println!("{a}");
-        }
-
-        let mac = ThreeBitMachine::new(a, 0, 0, program.clone());
-        let result = part_1(mac);
-        if result == program_str {
-            println!("Found: {a}");
-            break;
-        }
-    }
+    println!("{}", result);
 }
 
 fn read_file(path: &str) -> String {
@@ -190,5 +180,35 @@ mod tests {
         let idk = test as u8;
         let idk = 0b00000111 & idk;
         assert_eq!(0, idk);
+    }
+
+    #[test]
+    fn wait_what() {
+        let mut program = vec![2,4,1,1,7,5,0,3,4,7,1,6,5,5,3,0];
+
+        let mut candidates = vec![0u64];
+
+        for i in 1..=program.len() {
+            let expected: &[u64] = &program[program.len()-i..];
+
+            let mut next = Vec::new();
+
+            for &c in &candidates {
+                for digit in 0..8 {
+                    let a: u64 = c * 8 + digit as u64;
+                    let mut mac = ThreeBitMachine::new(a, 0, 0, program.clone().into_iter().map(|i| i as u8).collect());
+                    mac.run_program();
+                    let output = mac.output;
+
+                    if output.len() >= i && output[output.len()-i..] == *expected {
+                        next.push(a);
+                    }
+                }
+            }
+
+            candidates = next;
+        }
+
+        println!("{:?}", candidates.iter().min());
     }
 }
