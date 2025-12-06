@@ -11,9 +11,8 @@ fn part_1(input: &str) -> i64 {
     let mut aggs: Vec<Agg> = Vec::new();
 
     input.lines().enumerate().for_each(|(i, line)| {
-        let is_last = i == count - 1;
-        if is_last {
-            let chars = line.split_whitespace().enumerate().for_each(|(i, s)| {
+        if i == count - 1 {
+            line.split_whitespace().enumerate().for_each(|(i, s)| {
                 let op = match s {
                     "+" => Op::Add,
                     "*" => Op::Mul,
@@ -22,7 +21,7 @@ fn part_1(input: &str) -> i64 {
                 aggs.get_mut(i).unwrap().op = op;
             });
         } else {
-            let nums = line.split_whitespace().enumerate().for_each(|(i, s)| {
+            line.split_whitespace().enumerate().for_each(|(i, s)| {
                 let num = s.parse::<i64>().unwrap();
                 if let Some(agg) = aggs.get_mut(i) {
                     agg.add_numberr(num);
@@ -36,12 +35,7 @@ fn part_1(input: &str) -> i64 {
         }
     });
 
-    aggs.iter()
-        .map(|agg| {
-            let total = agg.total();
-            total
-        })
-        .sum()
+    aggs.iter().map(|agg| agg.total()).sum()
 }
 
 fn part_2(input: &str) -> i64 {
@@ -91,11 +85,10 @@ impl Agg {
     }
 
     fn total(&self) -> i64 {
-        let total = self.nums.iter().fold(1, |acc, num| match self.op {
-            Op::Add => acc + num,
-            Op::Mul => acc * num,
-        });
-        if self.op == Op::Add { total - 1 } else { total }
+        match self.op {
+            Op::Add => self.nums.iter().sum(),
+            Op::Mul => self.nums.iter().product(),
+        }
     }
 }
 
