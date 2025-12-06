@@ -45,95 +45,44 @@ fn part_1(input: &str) -> i64 {
 }
 
 fn part_2(input: &str) -> i64 {
-    let mut aggs: Vec<Agg2> = Vec::new();
-    let mut itt = input.lines().rev();
-    let mut indexes: Vec<usize> = Vec::new();
+    let lines: Vec<&str> = input.lines().collect();
+    let len = lines[0].len();
+    let count = lines.len();
 
-    let first_line = itt.next().unwrap();
-    first_line.chars().enumerate().for_each(|(i, c)| match c {
-        '+' => {
-            indexes.push(i);
-            aggs.push(Agg2 {
-                nums: Vec::new(),
-                op: Op::Add,
-            });
+    let mut lines = lines.iter().map(|&l| l.chars().rev()).collect::<Vec<_>>();
+
+    let mut buf: Vec<i64> = Vec::new();
+    let mut total = 0;
+    (0..len).for_each(|_| {
+        let num = (0..count - 1)
+            .map(|i| lines[i].next().unwrap())
+            .filter(|&c| c != ' ')
+            .collect::<String>();
+
+        if !num.is_empty() {
+            let num = num.parse::<i64>().unwrap();
+            buf.push(num);
         }
-        '*' => {
-            indexes.push(i);
-            aggs.push(Agg2 {
-                nums: Vec::new(),
-                op: Op::Mul,
-            });
+
+        match lines[count - 1].next().unwrap() {
+            '+' => {
+                total += buf.iter().sum::<i64>();
+                buf.clear();
+            }
+            '*' => {
+                total += buf.iter().product::<i64>();
+                buf.clear();
+            }
+            _ => {}
         }
-        _ => {}
     });
 
-    while let Some(line) = itt.next() {
-        let mut index_itt = indexes.iter();
-        let mut previous_index = index_itt.next().unwrap().clone();
-        let line_len = line.len();
-        for agg in aggs.iter_mut() {
-            let current_index = if let Some(next_index) = index_itt.next() {
-                next_index - 1
-            } else {
-                line_len
-            };
-            let s = line[(previous_index)..(current_index)].to_string();
-            agg.add(s);
-            previous_index = current_index + 1;
-        }
-    }
-
-    aggs.iter()
-        .map(|agg| {
-            let total = agg.total_part_2();
-            total
-        })
-        .sum()
+    total
 }
 
 struct Agg {
     nums: Vec<i64>,
     op: Op,
-}
-
-struct Agg2 {
-    nums: Vec<String>,
-    op: Op,
-}
-
-impl Agg2 {
-    fn add(&mut self, num: String) {
-        self.nums.push(num);
-    }
-
-    fn total_part_2(&self) -> i64 {
-        let max = self.nums.iter().map(|n| n.chars().count()).max().unwrap();
-
-        let mut new_vec: Vec<String> = vec![String::new(); max];
-
-        self.nums.iter().for_each(|num| {
-            let num_as_str = num.to_string();
-            let num_as_str = format!("{:width$}", num_as_str, width = max);
-            num_as_str.chars().rev().enumerate().for_each(|(i, c)| {
-                if c != ' ' {
-                    new_vec[i] = format!("{}{}", c, new_vec.get(i).unwrap_or(&String::new()));
-                }
-            })
-        });
-
-        let total = new_vec
-            .iter()
-            .map(|s| s.trim())
-            .filter(|s| !s.trim().is_empty())
-            .map(|s| s.parse::<i64>().unwrap())
-            .fold(1, |acc, num| match self.op {
-                Op::Add => acc + num,
-                Op::Mul => acc * num,
-            });
-
-        if self.op == Op::Add { total - 1 } else { total }
-    }
 }
 
 impl Agg {
@@ -146,32 +95,6 @@ impl Agg {
             Op::Add => acc + num,
             Op::Mul => acc * num,
         });
-        if self.op == Op::Add { total - 1 } else { total }
-    }
-
-    fn total_part_2(&self) -> i64 {
-        let max = self.nums.iter().max().unwrap();
-        let max_as_str = max.to_string();
-        let max_chars = max_as_str.chars().count();
-
-        let mut new_vec: Vec<String> = vec![String::new(); max_chars];
-
-        self.nums.iter().for_each(|num| {
-            let num_as_str = num.to_string();
-            num_as_str.chars().rev().enumerate().for_each(|(i, c)| {
-                new_vec[i] = format!("{}{}", new_vec.get(i).unwrap_or(&String::new()), c);
-            })
-        });
-
-        let total =
-            new_vec
-                .iter()
-                .map(|s| s.parse::<i64>().unwrap())
-                .fold(1, |acc, num| match self.op {
-                    Op::Add => acc + num,
-                    Op::Mul => acc * num,
-                });
-
         if self.op == Op::Add { total - 1 } else { total }
     }
 }
