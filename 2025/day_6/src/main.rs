@@ -3,7 +3,9 @@ use std::cmp::PartialEq;
 fn main() {
     let input = include_str!("../resource/input.txt");
     println!("{}", part_1(input));
-    println!("{}", part_2(input));
+
+    let start = std::time::Instant::now();
+    println!("part 2: {} in {} us", part_2(input), start.elapsed().as_micros());
 }
 
 fn part_1(input: &str) -> i64 {
