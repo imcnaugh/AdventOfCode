@@ -60,7 +60,7 @@ fn part_1(input: &str, to_connect: usize) -> usize {
     });
 
     circuits.sort_by(|a, b| b.len().cmp(&a.len()));
-    (0..3c).map(|i| circuits[i].len()).product()
+    (0..3).map(|i| circuits[i].len()).product()
 }
 
 fn part_2(input: &str) -> usize {
