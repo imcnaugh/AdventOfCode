@@ -1,0 +1,494 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="6000" height="3000" viewBox="0 0 6000 3000">
+  <rect x="0" y="0" width="100%" height="100%" fill="#0b132b"/>
+  <g>
+    <polyline points="4219.53,861.38 1719.46,861.38 1719.46,894.35 1712.75,894.35 1712.75,926.99 1715.65,926.99 1715.65,961.53 1700.00,961.53 1700.00,992.63 1718.78,992.63 1718.78,1024.76 1725.96,1024.76 1725.96,1056.86 1732.64,1056.86 1732.64,1092.92 1719.98,1092.92 1719.98,1122.48 1739.65,1122.48 1739.65,1152.82 1753.67,1152.82 1753.67,1189.39 1745.01,1189.39 1745.01,1219.11 1761.25,1219.11 1761.25,1245.50 1786.10,1245.50 1786.10,1280.66 1785.15,1280.66 1785.15,1311.43 1796.96,1311.43 1796.96,1337.53 1819.72,1337.53 1819.72,1365.89 1836.31,1365.89 1836.31,1403.60 1833.50,1403.60 1833.50,1434.13 1846.52,1434.13 1846.52,1458.93 1870.07,1458.93 1870.07,1493.00 1877.08,1493.00 1877.08,1517.09 1901.11,1517.09 1901.11,1547.63 1914.70,1547.63 1914.70,1574.75 1933.70,1574.75 1933.70,1600.19 1954.92,1600.19 1954.92,1621.38 1981.53,1621.38 1981.53,1641.90 2008.27,1641.90 2008.27,1676.11 2018.50,1676.11 2018.50,1699.64 2041.65,1699.64 2041.65,1726.33 2061.35,1726.33 2061.35,1751.61 2082.79,1751.61 2082.79,1763.90 2116.70,1763.90 2116.70,1798.97 2129.13,1798.97 2129.13,1814.78 2159.20,1814.78 2159.20,1842.55 2179.07,1842.55 2179.07,1852.46 2213.31,1852.46 2213.31,1886.13 2229.33,1886.13 2229.33,1897.26 2262.08,1897.26 2262.08,1904.62 2296.73,1904.62 2296.73,1937.53 2314.73,1937.53 2314.73,1954.18 2343.37,1954.18 2343.37,1975.10 2369.62,1975.10 2369.62,1979.03 2405.06,1979.03 2405.06,2001.44 2430.72,2001.44 2430.72,2009.18 2463.58,2009.18 2463.58,2018.82 2495.30,2018.82 2495.30,2024.31 2528.43,2024.31 2528.43,2057.69 2550.92,2057.69 2550.92,2068.00 2582.51,2068.00 2582.51,2065.70 2618.02,2065.70 2618.02,2073.47 2649.99,2073.47 2649.99,2089.57 2679.74,2089.57 2679.74,2092.31 2713.00,2092.31 2713.00,2093.36 2746.35,2093.36 2746.35,2116.48 2775.47,2116.48 2775.47,2118.05 2808.79,2118.05 2808.79,2107.98 2843.41,2107.98 2843.41,2130.44 2874.03,2130.44 2874.03,2129.85 2907.35,2129.85 2907.35,2126.06 2940.67,2126.06 2940.67,2119.26 2973.77,2119.26 2973.77,2138.62 3006.55,2138.62 3006.55,2135.97 3039.71,2135.97 3039.71,2112.47 3071.70,2112.47 3071.70,2132.09 3105.94,2132.09 3105.94,2122.57 3138.29,2122.57 3138.29,2117.07 3170.82,2117.07 3170.82,2119.02 3204.47,2119.02 3204.47,2112.09 3236.87,2112.09 3236.87,2094.53 3267.02,2094.53 3267.02,2089.92 3299.61,2089.92 3299.61,2082.83 3331.71,2082.83 3331.71,2078.74 3364.74,2078.74 3364.74,2079.10 3399.44,2079.10 3399.44,2061.31 3428.51,2061.31 3428.51,2041.93 3456.58,2041.93 3456.58,2042.96 3492.36,2042.96 3492.36,2013.67 3515.85,2013.67 3515.85,1994.81 3543.19,1994.81 3543.19,1990.67 3577.46,1990.67 3577.46,1968.93 3603.17,1968.93 3603.17,1972.69 3642.64,1972.69 3642.64,1938.91 3661.26,1938.91 3661.26,1919.15 3687.49,1919.15 3687.49,1903.43 3716.18,1903.43 3716.18,1884.26 3742.68,1884.26 3742.68,1866.59 3770.21,1866.59 3770.21,1857.63 3804.66,1857.63 3804.66,1833.46 3827.59,1833.46 3827.59,1811.64 3852.28,1811.64 3852.28,1790.72 3877.69,1790.72 3877.69,1766.44 3900.08,1766.44 3900.08,1747.84 3927.96,1747.84 3927.96,1716.31 3942.71,1716.31 3942.71,1689.84 3962.22,1689.84 3962.22,1675.87 3996.11,1675.87 3996.11,1638.60 4002.69,1638.60 4002.69,1623.01 4035.79,1623.01 4035.79,1593.80 4051.79,1593.80 4051.79,1575.10 4082.49,1575.10 4082.49,1543.29 4094.58,1543.29 4094.58,1510.60 4104.55,1510.60 4104.55,1491.46 4136.78,1491.46 4136.78,1456.92 4143.04,1456.92 4143.04,1421.36 4146.04,1421.36 4146.04,1397.10 4170.67,1397.10 4170.67,1371.09 4192.84,1371.09 4192.84,1334.06 4190.40,1334.06 4190.40,1309.13 4216.12,1309.13 4216.12,1277.38 4225.48,1277.38 4225.48,1242.55 4225.40,1242.55 4225.40,1217.10 4253.53,1217.10 4253.53,1186.35 4266.57,1186.35 4266.57,1149.89 4258.23,1149.89 4258.23,1120.12 4274.99,1120.12 4274.99,1085.45 4270.17,1085.45 4270.17,1055.54 4288.96,1055.54 4288.96,1021.76 4286.52,1021.76 4286.52,990.28 4299.43,990.28 4299.43,955.66 4285.33,955.66 4285.33,923.15 4288.12,923.15 4288.12,891.10 4300.00,891.10" fill="none" stroke="#a8dadc" stroke-width="6" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="4219.53" cy="861.38" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1719.46" cy="861.38" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1719.46" cy="894.35" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1712.75" cy="894.35" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1712.75" cy="926.99" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1715.65" cy="926.99" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1715.65" cy="961.53" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1700.00" cy="961.53" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1700.00" cy="992.63" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1718.78" cy="992.63" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1718.78" cy="1024.76" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1725.96" cy="1024.76" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1725.96" cy="1056.86" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1732.64" cy="1056.86" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1732.64" cy="1092.92" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1719.98" cy="1092.92" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1719.98" cy="1122.48" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1739.65" cy="1122.48" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1739.65" cy="1152.82" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1753.67" cy="1152.82" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1753.67" cy="1189.39" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1745.01" cy="1189.39" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1745.01" cy="1219.11" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1761.25" cy="1219.11" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1761.25" cy="1245.50" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1786.10" cy="1245.50" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1786.10" cy="1280.66" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1785.15" cy="1280.66" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1785.15" cy="1311.43" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1796.96" cy="1311.43" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1796.96" cy="1337.53" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1819.72" cy="1337.53" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1819.72" cy="1365.89" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1836.31" cy="1365.89" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1836.31" cy="1403.60" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1833.50" cy="1403.60" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1833.50" cy="1434.13" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1846.52" cy="1434.13" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1846.52" cy="1458.93" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1870.07" cy="1458.93" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1870.07" cy="1493.00" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1877.08" cy="1493.00" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1877.08" cy="1517.09" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1901.11" cy="1517.09" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1901.11" cy="1547.63" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1914.70" cy="1547.63" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1914.70" cy="1574.75" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1933.70" cy="1574.75" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1933.70" cy="1600.19" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1954.92" cy="1600.19" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1954.92" cy="1621.38" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1981.53" cy="1621.38" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="1981.53" cy="1641.90" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2008.27" cy="1641.90" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2008.27" cy="1676.11" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2018.50" cy="1676.11" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2018.50" cy="1699.64" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2041.65" cy="1699.64" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2041.65" cy="1726.33" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2061.35" cy="1726.33" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2061.35" cy="1751.61" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2082.79" cy="1751.61" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2082.79" cy="1763.90" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2116.70" cy="1763.90" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2116.70" cy="1798.97" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2129.13" cy="1798.97" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2129.13" cy="1814.78" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2159.20" cy="1814.78" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2159.20" cy="1842.55" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2179.07" cy="1842.55" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2179.07" cy="1852.46" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2213.31" cy="1852.46" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2213.31" cy="1886.13" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2229.33" cy="1886.13" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2229.33" cy="1897.26" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2262.08" cy="1897.26" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2262.08" cy="1904.62" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2296.73" cy="1904.62" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2296.73" cy="1937.53" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2314.73" cy="1937.53" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2314.73" cy="1954.18" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2343.37" cy="1954.18" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2343.37" cy="1975.10" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2369.62" cy="1975.10" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2369.62" cy="1979.03" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2405.06" cy="1979.03" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2405.06" cy="2001.44" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2430.72" cy="2001.44" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2430.72" cy="2009.18" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2463.58" cy="2009.18" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2463.58" cy="2018.82" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2495.30" cy="2018.82" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2495.30" cy="2024.31" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2528.43" cy="2024.31" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2528.43" cy="2057.69" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2550.92" cy="2057.69" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2550.92" cy="2068.00" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2582.51" cy="2068.00" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2582.51" cy="2065.70" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2618.02" cy="2065.70" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2618.02" cy="2073.47" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2649.99" cy="2073.47" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2649.99" cy="2089.57" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2679.74" cy="2089.57" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2679.74" cy="2092.31" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2713.00" cy="2092.31" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2713.00" cy="2093.36" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2746.35" cy="2093.36" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2746.35" cy="2116.48" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2775.47" cy="2116.48" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2775.47" cy="2118.05" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2808.79" cy="2118.05" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2808.79" cy="2107.98" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2843.41" cy="2107.98" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2843.41" cy="2130.44" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2874.03" cy="2130.44" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2874.03" cy="2129.85" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2907.35" cy="2129.85" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2907.35" cy="2126.06" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2940.67" cy="2126.06" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2940.67" cy="2119.26" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2973.77" cy="2119.26" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="2973.77" cy="2138.62" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3006.55" cy="2138.62" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3006.55" cy="2135.97" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3039.71" cy="2135.97" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3039.71" cy="2112.47" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3071.70" cy="2112.47" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3071.70" cy="2132.09" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3105.94" cy="2132.09" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3105.94" cy="2122.57" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3138.29" cy="2122.57" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3138.29" cy="2117.07" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3170.82" cy="2117.07" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3170.82" cy="2119.02" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3204.47" cy="2119.02" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3204.47" cy="2112.09" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3236.87" cy="2112.09" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3236.87" cy="2094.53" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3267.02" cy="2094.53" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3267.02" cy="2089.92" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3299.61" cy="2089.92" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3299.61" cy="2082.83" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3331.71" cy="2082.83" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3331.71" cy="2078.74" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3364.74" cy="2078.74" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3364.74" cy="2079.10" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3399.44" cy="2079.10" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3399.44" cy="2061.31" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3428.51" cy="2061.31" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3428.51" cy="2041.93" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3456.58" cy="2041.93" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3456.58" cy="2042.96" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3492.36" cy="2042.96" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3492.36" cy="2013.67" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3515.85" cy="2013.67" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3515.85" cy="1994.81" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3543.19" cy="1994.81" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3543.19" cy="1990.67" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3577.46" cy="1990.67" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3577.46" cy="1968.93" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3603.17" cy="1968.93" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3603.17" cy="1972.69" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3642.64" cy="1972.69" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3642.64" cy="1938.91" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3661.26" cy="1938.91" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3661.26" cy="1919.15" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3687.49" cy="1919.15" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3687.49" cy="1903.43" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3716.18" cy="1903.43" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3716.18" cy="1884.26" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3742.68" cy="1884.26" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3742.68" cy="1866.59" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3770.21" cy="1866.59" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3770.21" cy="1857.63" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3804.66" cy="1857.63" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3804.66" cy="1833.46" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3827.59" cy="1833.46" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3827.59" cy="1811.64" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3852.28" cy="1811.64" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3852.28" cy="1790.72" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3877.69" cy="1790.72" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3877.69" cy="1766.44" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3900.08" cy="1766.44" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3900.08" cy="1747.84" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3927.96" cy="1747.84" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3927.96" cy="1716.31" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3942.71" cy="1716.31" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3942.71" cy="1689.84" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3962.22" cy="1689.84" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3962.22" cy="1675.87" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3996.11" cy="1675.87" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="3996.11" cy="1638.60" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4002.69" cy="1638.60" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4002.69" cy="1623.01" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4035.79" cy="1623.01" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4035.79" cy="1593.80" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4051.79" cy="1593.80" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4051.79" cy="1575.10" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4082.49" cy="1575.10" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4082.49" cy="1543.29" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4094.58" cy="1543.29" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4094.58" cy="1510.60" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4104.55" cy="1510.60" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4104.55" cy="1491.46" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4136.78" cy="1491.46" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4136.78" cy="1456.92" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4143.04" cy="1456.92" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4143.04" cy="1421.36" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4146.04" cy="1421.36" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4146.04" cy="1397.10" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4170.67" cy="1397.10" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4170.67" cy="1371.09" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4192.84" cy="1371.09" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4192.84" cy="1334.06" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4190.40" cy="1334.06" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4190.40" cy="1309.13" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4216.12" cy="1309.13" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4216.12" cy="1277.38" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4225.48" cy="1277.38" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4225.48" cy="1242.55" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4225.40" cy="1242.55" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4225.40" cy="1217.10" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4253.53" cy="1217.10" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4253.53" cy="1186.35" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4266.57" cy="1186.35" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4266.57" cy="1149.89" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4258.23" cy="1149.89" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4258.23" cy="1120.12" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4274.99" cy="1120.12" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4274.99" cy="1085.45" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4270.17" cy="1085.45" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4270.17" cy="1055.54" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4288.96" cy="1055.54" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4288.96" cy="1021.76" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4286.52" cy="1021.76" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4286.52" cy="990.28" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4299.43" cy="990.28" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4299.43" cy="955.66" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4285.33" cy="955.66" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4285.33" cy="923.15" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4288.12" cy="923.15" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4288.12" cy="891.10" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <circle cx="4300.00" cy="891.10" r="6" fill="#e63946" stroke="white" stroke-width="2" />
+    <text x="4229.53" y="851.38" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">1: (94876,48734)</text>
+    <text x="1729.46" y="851.38" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">2: (2512,48734)</text>
+    <text x="1729.46" y="884.35" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">3: (2512,47516)</text>
+    <text x="1722.75" y="884.35" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">4: (2264,47516)</text>
+    <text x="1722.75" y="916.99" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">5: (2264,46310)</text>
+    <text x="1725.65" y="916.99" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">6: (2371,46310)</text>
+    <text x="1725.65" y="951.53" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">7: (2371,45034)</text>
+    <text x="1710.00" y="951.53" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">8: (1793,45034)</text>
+    <text x="1710.00" y="982.63" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">9: (1793,43885)</text>
+    <text x="1728.78" y="982.63" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">10: (2487,43885)</text>
+    <text x="1728.78" y="1014.76" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">11: (2487,42698)</text>
+    <text x="1735.96" y="1014.76" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">12: (2752,42698)</text>
+    <text x="1735.96" y="1046.86" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">13: (2752,41512)</text>
+    <text x="1742.64" y="1046.86" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">14: (2999,41512)</text>
+    <text x="1742.64" y="1082.92" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">15: (2999,40180)</text>
+    <text x="1729.98" y="1082.92" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">16: (2531,40180)</text>
+    <text x="1729.98" y="1112.48" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">17: (2531,39088)</text>
+    <text x="1749.65" y="1112.48" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">18: (3258,39088)</text>
+    <text x="1749.65" y="1142.82" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">19: (3258,37967)</text>
+    <text x="1763.67" y="1142.82" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">20: (3776,37967)</text>
+    <text x="1763.67" y="1179.39" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">21: (3776,36616)</text>
+    <text x="1755.01" y="1179.39" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">22: (3456,36616)</text>
+    <text x="1755.01" y="1209.11" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">23: (3456,35518)</text>
+    <text x="1771.25" y="1209.11" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">24: (4056,35518)</text>
+    <text x="1771.25" y="1235.50" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">25: (4056,34543)</text>
+    <text x="1796.10" y="1235.50" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">26: (4974,34543)</text>
+    <text x="1796.10" y="1270.66" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">27: (4974,33244)</text>
+    <text x="1795.15" y="1270.66" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">28: (4939,33244)</text>
+    <text x="1795.15" y="1301.43" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">29: (4939,32107)</text>
+    <text x="1806.96" y="1301.43" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">30: (5375,32107)</text>
+    <text x="1806.96" y="1327.53" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">31: (5375,31143)</text>
+    <text x="1829.72" y="1327.53" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">32: (6216,31143)</text>
+    <text x="1829.72" y="1355.89" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">33: (6216,30095)</text>
+    <text x="1846.31" y="1355.89" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">34: (6829,30095)</text>
+    <text x="1846.31" y="1393.60" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">35: (6829,28702)</text>
+    <text x="1843.50" y="1393.60" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">36: (6725,28702)</text>
+    <text x="1843.50" y="1424.13" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">37: (6725,27574)</text>
+    <text x="1856.52" y="1424.13" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">38: (7206,27574)</text>
+    <text x="1856.52" y="1448.93" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">39: (7206,26658)</text>
+    <text x="1880.07" y="1448.93" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">40: (8076,26658)</text>
+    <text x="1880.07" y="1483.00" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">41: (8076,25399)</text>
+    <text x="1887.08" y="1483.00" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">42: (8335,25399)</text>
+    <text x="1887.08" y="1507.09" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">43: (8335,24509)</text>
+    <text x="1911.11" y="1507.09" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">44: (9223,24509)</text>
+    <text x="1911.11" y="1537.63" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">45: (9223,23381)</text>
+    <text x="1924.70" y="1537.63" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">46: (9725,23381)</text>
+    <text x="1924.70" y="1564.75" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">47: (9725,22379)</text>
+    <text x="1943.70" y="1564.75" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">48: (10427,22379)</text>
+    <text x="1943.70" y="1590.19" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">49: (10427,21439)</text>
+    <text x="1964.92" y="1590.19" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">50: (11211,21439)</text>
+    <text x="1964.92" y="1611.38" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">51: (11211,20656)</text>
+    <text x="1991.53" y="1611.38" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">52: (12194,20656)</text>
+    <text x="1991.53" y="1631.90" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">53: (12194,19898)</text>
+    <text x="2018.27" y="1631.90" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">54: (13182,19898)</text>
+    <text x="2018.27" y="1666.11" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">55: (13182,18634)</text>
+    <text x="2028.50" y="1666.11" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">56: (13560,18634)</text>
+    <text x="2028.50" y="1689.64" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">57: (13560,17765)</text>
+    <text x="2051.65" y="1689.64" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">58: (14415,17765)</text>
+    <text x="2051.65" y="1716.33" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">59: (14415,16779)</text>
+    <text x="2071.35" y="1716.33" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">60: (15143,16779)</text>
+    <text x="2071.35" y="1741.61" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">61: (15143,15845)</text>
+    <text x="2092.79" y="1741.61" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">62: (15935,15845)</text>
+    <text x="2092.79" y="1753.90" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">63: (15935,15391)</text>
+    <text x="2126.70" y="1753.90" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">64: (17188,15391)</text>
+    <text x="2126.70" y="1788.97" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">65: (17188,14095)</text>
+    <text x="2139.13" y="1788.97" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">66: (17647,14095)</text>
+    <text x="2139.13" y="1804.78" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">67: (17647,13511)</text>
+    <text x="2169.20" y="1804.78" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">68: (18758,13511)</text>
+    <text x="2169.20" y="1832.55" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">69: (18758,12485)</text>
+    <text x="2189.07" y="1832.55" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">70: (19492,12485)</text>
+    <text x="2189.07" y="1842.46" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">71: (19492,12119)</text>
+    <text x="2223.31" y="1842.46" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">72: (20757,12119)</text>
+    <text x="2223.31" y="1876.13" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">73: (20757,10875)</text>
+    <text x="2239.33" y="1876.13" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">74: (21349,10875)</text>
+    <text x="2239.33" y="1887.26" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">75: (21349,10464)</text>
+    <text x="2272.08" y="1887.26" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">76: (22559,10464)</text>
+    <text x="2272.08" y="1894.62" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">77: (22559,10192)</text>
+    <text x="2306.73" y="1894.62" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">78: (23839,10192)</text>
+    <text x="2306.73" y="1927.53" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">79: (23839,8976)</text>
+    <text x="2324.73" y="1927.53" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">80: (24504,8976)</text>
+    <text x="2324.73" y="1944.18" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">81: (24504,8361)</text>
+    <text x="2353.37" y="1944.18" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">82: (25562,8361)</text>
+    <text x="2353.37" y="1965.10" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">83: (25562,7588)</text>
+    <text x="2379.62" y="1965.10" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">84: (26532,7588)</text>
+    <text x="2379.62" y="1969.03" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">85: (26532,7443)</text>
+    <text x="2415.06" y="1969.03" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">86: (27841,7443)</text>
+    <text x="2415.06" y="1991.44" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">87: (27841,6615)</text>
+    <text x="2440.72" y="1991.44" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">88: (28789,6615)</text>
+    <text x="2440.72" y="1999.18" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">89: (28789,6329)</text>
+    <text x="2473.58" y="1999.18" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">90: (30003,6329)</text>
+    <text x="2473.58" y="2008.82" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">91: (30003,5973)</text>
+    <text x="2505.30" y="2008.82" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">92: (31175,5973)</text>
+    <text x="2505.30" y="2014.31" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">93: (31175,5770)</text>
+    <text x="2538.43" y="2014.31" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">94: (32399,5770)</text>
+    <text x="2538.43" y="2047.69" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">95: (32399,4537)</text>
+    <text x="2560.92" y="2047.69" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">96: (33230,4537)</text>
+    <text x="2560.92" y="2058.00" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">97: (33230,4156)</text>
+    <text x="2592.51" y="2058.00" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">98: (34397,4156)</text>
+    <text x="2592.51" y="2055.70" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">99: (34397,4241)</text>
+    <text x="2628.02" y="2055.70" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">100: (35709,4241)</text>
+    <text x="2628.02" y="2063.47" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">101: (35709,3954)</text>
+    <text x="2659.99" y="2063.47" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">102: (36890,3954)</text>
+    <text x="2659.99" y="2079.57" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">103: (36890,3359)</text>
+    <text x="2689.74" y="2079.57" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">104: (37989,3359)</text>
+    <text x="2689.74" y="2082.31" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">105: (37989,3258)</text>
+    <text x="2723.00" y="2082.31" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">106: (39218,3258)</text>
+    <text x="2723.00" y="2083.36" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">107: (39218,3219)</text>
+    <text x="2756.35" y="2083.36" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">108: (40450,3219)</text>
+    <text x="2756.35" y="2106.48" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">109: (40450,2365)</text>
+    <text x="2785.47" y="2106.48" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">110: (41526,2365)</text>
+    <text x="2785.47" y="2108.05" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">111: (41526,2307)</text>
+    <text x="2818.79" y="2108.05" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">112: (42757,2307)</text>
+    <text x="2818.79" y="2097.98" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">113: (42757,2679)</text>
+    <text x="2853.41" y="2097.98" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">114: (44036,2679)</text>
+    <text x="2853.41" y="2120.44" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">115: (44036,1849)</text>
+    <text x="2884.03" y="2120.44" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">116: (45167,1849)</text>
+    <text x="2884.03" y="2119.85" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">117: (45167,1871)</text>
+    <text x="2917.35" y="2119.85" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">118: (46398,1871)</text>
+    <text x="2917.35" y="2116.06" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">119: (46398,2011)</text>
+    <text x="2950.67" y="2116.06" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">120: (47629,2011)</text>
+    <text x="2950.67" y="2109.26" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">121: (47629,2262)</text>
+    <text x="2983.77" y="2109.26" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">122: (48852,2262)</text>
+    <text x="2983.77" y="2128.62" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">123: (48852,1547)</text>
+    <text x="3016.55" y="2128.62" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">124: (50063,1547)</text>
+    <text x="3016.55" y="2125.97" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">125: (50063,1645)</text>
+    <text x="3049.71" y="2125.97" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">126: (51288,1645)</text>
+    <text x="3049.71" y="2102.47" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">127: (51288,2513)</text>
+    <text x="3081.70" y="2102.47" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">128: (52470,2513)</text>
+    <text x="3081.70" y="2122.09" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">129: (52470,1788)</text>
+    <text x="3115.94" y="2122.09" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">130: (53735,1788)</text>
+    <text x="3115.94" y="2112.57" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">131: (53735,2140)</text>
+    <text x="3148.29" y="2112.57" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">132: (54930,2140)</text>
+    <text x="3148.29" y="2107.07" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">133: (54930,2343)</text>
+    <text x="3180.82" y="2107.07" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">134: (56132,2343)</text>
+    <text x="3180.82" y="2109.02" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">135: (56132,2271)</text>
+    <text x="3214.47" y="2109.02" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">136: (57375,2271)</text>
+    <text x="3214.47" y="2102.09" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">137: (57375,2527)</text>
+    <text x="3246.87" y="2102.09" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">138: (58572,2527)</text>
+    <text x="3246.87" y="2084.53" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">139: (58572,3176)</text>
+    <text x="3277.02" y="2084.53" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">140: (59686,3176)</text>
+    <text x="3277.02" y="2079.92" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">141: (59686,3346)</text>
+    <text x="3309.61" y="2079.92" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">142: (60890,3346)</text>
+    <text x="3309.61" y="2072.83" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">143: (60890,3608)</text>
+    <text x="3341.71" y="2072.83" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">144: (62076,3608)</text>
+    <text x="3341.71" y="2068.74" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">145: (62076,3759)</text>
+    <text x="3374.74" y="2068.74" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">146: (63296,3759)</text>
+    <text x="3374.74" y="2069.10" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">147: (63296,3746)</text>
+    <text x="3409.44" y="2069.10" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">148: (64578,3746)</text>
+    <text x="3409.44" y="2051.31" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">149: (64578,4403)</text>
+    <text x="3438.51" y="2051.31" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">150: (65652,4403)</text>
+    <text x="3438.51" y="2031.93" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">151: (65652,5119)</text>
+    <text x="3466.58" y="2031.93" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">152: (66689,5119)</text>
+    <text x="3466.58" y="2032.96" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">153: (66689,5081)</text>
+    <text x="3502.36" y="2032.96" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">154: (68011,5081)</text>
+    <text x="3502.36" y="2003.67" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">155: (68011,6163)</text>
+    <text x="3525.85" y="2003.67" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">156: (68879,6163)</text>
+    <text x="3525.85" y="1984.81" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">157: (68879,6860)</text>
+    <text x="3553.19" y="1984.81" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">158: (69889,6860)</text>
+    <text x="3553.19" y="1980.67" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">159: (69889,7013)</text>
+    <text x="3587.46" y="1980.67" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">160: (71155,7013)</text>
+    <text x="3587.46" y="1958.93" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">161: (71155,7816)</text>
+    <text x="3613.17" y="1958.93" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">162: (72105,7816)</text>
+    <text x="3613.17" y="1962.69" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">163: (72105,7677)</text>
+    <text x="3652.64" y="1962.69" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">164: (73563,7677)</text>
+    <text x="3652.64" y="1928.91" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">165: (73563,8925)</text>
+    <text x="3671.26" y="1928.91" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">166: (74251,8925)</text>
+    <text x="3671.26" y="1909.15" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">167: (74251,9655)</text>
+    <text x="3697.49" y="1909.15" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">168: (75220,9655)</text>
+    <text x="3697.49" y="1893.43" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">169: (75220,10236)</text>
+    <text x="3726.18" y="1893.43" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">170: (76280,10236)</text>
+    <text x="3726.18" y="1874.26" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">171: (76280,10944)</text>
+    <text x="3752.68" y="1874.26" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">172: (77259,10944)</text>
+    <text x="3752.68" y="1856.59" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">173: (77259,11597)</text>
+    <text x="3780.21" y="1856.59" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">174: (78276,11597)</text>
+    <text x="3780.21" y="1847.63" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">175: (78276,11928)</text>
+    <text x="3814.66" y="1847.63" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">176: (79549,11928)</text>
+    <text x="3814.66" y="1823.46" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">177: (79549,12821)</text>
+    <text x="3837.59" y="1823.46" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">178: (80396,12821)</text>
+    <text x="3837.59" y="1801.64" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">179: (80396,13627)</text>
+    <text x="3862.28" y="1801.64" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">180: (81308,13627)</text>
+    <text x="3862.28" y="1780.72" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">181: (81308,14400)</text>
+    <text x="3887.69" y="1780.72" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">182: (82247,14400)</text>
+    <text x="3887.69" y="1756.44" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">183: (82247,15297)</text>
+    <text x="3910.08" y="1756.44" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">184: (83074,15297)</text>
+    <text x="3910.08" y="1737.84" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">185: (83074,15984)</text>
+    <text x="3937.96" y="1737.84" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">186: (84104,15984)</text>
+    <text x="3937.96" y="1706.31" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">187: (84104,17149)</text>
+    <text x="3952.71" y="1706.31" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">188: (84649,17149)</text>
+    <text x="3952.71" y="1679.84" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">189: (84649,18127)</text>
+    <text x="3972.22" y="1679.84" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">190: (85370,18127)</text>
+    <text x="3972.22" y="1665.87" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">191: (85370,18643)</text>
+    <text x="4006.11" y="1665.87" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">192: (86622,18643)</text>
+    <text x="4006.11" y="1628.60" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">193: (86622,20020)</text>
+    <text x="4012.69" y="1628.60" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">194: (86865,20020)</text>
+    <text x="4012.69" y="1613.01" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">195: (86865,20596)</text>
+    <text x="4045.79" y="1613.01" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">196: (88088,20596)</text>
+    <text x="4045.79" y="1583.80" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">197: (88088,21675)</text>
+    <text x="4061.79" y="1583.80" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">198: (88679,21675)</text>
+    <text x="4061.79" y="1565.10" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">199: (88679,22366)</text>
+    <text x="4092.49" y="1565.10" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">200: (89813,22366)</text>
+    <text x="4092.49" y="1533.29" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">201: (89813,23541)</text>
+    <text x="4104.58" y="1533.29" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">202: (90260,23541)</text>
+    <text x="4104.58" y="1500.60" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">203: (90260,24749)</text>
+    <text x="4114.55" y="1500.60" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">204: (90628,24749)</text>
+    <text x="4114.55" y="1481.46" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">205: (90628,25456)</text>
+    <text x="4146.78" y="1481.46" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">206: (91819,25456)</text>
+    <text x="4146.78" y="1446.92" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">207: (91819,26732)</text>
+    <text x="4153.04" y="1446.92" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">208: (92050,26732)</text>
+    <text x="4153.04" y="1411.36" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">209: (92050,28046)</text>
+    <text x="4156.04" y="1411.36" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">210: (92161,28046)</text>
+    <text x="4156.04" y="1387.10" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">211: (92161,28942)</text>
+    <text x="4180.67" y="1387.10" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">212: (93071,28942)</text>
+    <text x="4180.67" y="1361.09" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">213: (93071,29903)</text>
+    <text x="4202.84" y="1361.09" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">214: (93890,29903)</text>
+    <text x="4202.84" y="1324.06" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">215: (93890,31271)</text>
+    <text x="4200.40" y="1324.06" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">216: (93800,31271)</text>
+    <text x="4200.40" y="1299.13" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">217: (93800,32192)</text>
+    <text x="4226.12" y="1299.13" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">218: (94750,32192)</text>
+    <text x="4226.12" y="1267.38" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">219: (94750,33365)</text>
+    <text x="4235.48" y="1267.38" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">220: (95096,33365)</text>
+    <text x="4235.48" y="1232.55" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">221: (95096,34652)</text>
+    <text x="4235.40" y="1232.55" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">222: (95093,34652)</text>
+    <text x="4235.40" y="1207.10" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">223: (95093,35592)</text>
+    <text x="4263.53" y="1207.10" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">224: (96132,35592)</text>
+    <text x="4263.53" y="1176.35" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">225: (96132,36728)</text>
+    <text x="4276.57" y="1176.35" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">226: (96614,36728)</text>
+    <text x="4276.57" y="1139.89" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">227: (96614,38075)</text>
+    <text x="4268.23" y="1139.89" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">228: (96306,38075)</text>
+    <text x="4268.23" y="1110.12" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">229: (96306,39175)</text>
+    <text x="4284.99" y="1110.12" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">230: (96925,39175)</text>
+    <text x="4284.99" y="1075.45" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">231: (96925,40456)</text>
+    <text x="4280.17" y="1075.45" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">232: (96747,40456)</text>
+    <text x="4280.17" y="1045.54" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">233: (96747,41561)</text>
+    <text x="4298.96" y="1045.54" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">234: (97441,41561)</text>
+    <text x="4298.96" y="1011.76" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">235: (97441,42809)</text>
+    <text x="4296.52" y="1011.76" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">236: (97351,42809)</text>
+    <text x="4296.52" y="980.28" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">237: (97351,43972)</text>
+    <text x="4309.43" y="980.28" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">238: (97828,43972)</text>
+    <text x="4309.43" y="945.66" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">239: (97828,45251)</text>
+    <text x="4295.33" y="945.66" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">240: (97307,45251)</text>
+    <text x="4295.33" y="913.15" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">241: (97307,46452)</text>
+    <text x="4298.12" y="913.15" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">242: (97410,46452)</text>
+    <text x="4298.12" y="881.10" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">243: (97410,47636)</text>
+    <text x="4310.00" y="881.10" font-size="32" font-family="monospace" fill="#f1faee" stroke="#0b132b" stroke-width="4" paint-order="stroke">244: (97849,47636)</text>
+  </g>
+</svg>
