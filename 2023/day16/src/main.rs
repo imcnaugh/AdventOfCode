@@ -4,6 +4,7 @@ use std::collections::HashSet;
 fn main() {
     let input = include_str!("../resource/input.txt");
     println!("Part 1: {}", part_1(input));
+    println!("Part 2: {}", part_2(input));
 }
 
 fn part_1(input: &str) -> usize {
@@ -13,7 +14,20 @@ fn part_1(input: &str) -> usize {
 
 fn part_2(input: &str) -> usize {
     let map = MirrorMap::from(input);
-    todo!()
+    let mut max = 0;
+    for x in 0..map.height {
+        let from_left = map.get_energized_cell_count((x, 0), East);
+        max = max.max(from_left);
+        let from_right = map.get_energized_cell_count((x, map.height - 1), West);
+        max = max.max(from_right);
+    }
+    for y in 0..map.width {
+        let from_top = map.get_energized_cell_count((0, y), North);
+        max = max.max(from_top);
+        let from_bottom = map.get_energized_cell_count((map.height - 1, y), South);
+        max = max.max(from_bottom);
+    }
+    max
 }
 
 struct MirrorMap {
