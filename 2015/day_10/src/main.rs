@@ -7,7 +7,10 @@ fn main() {
 }
 
 fn part_1(input: &str) -> usize {
-    let mapped_input = input.chars().map(|c| usize::from_str_radix(&c.to_string(), 10).unwrap()).collect::<Vec<usize>>();
+    let mapped_input = input
+        .chars()
+        .map(|c| usize::from_str_radix(&c.to_string(), 10).unwrap())
+        .collect::<Vec<usize>>();
     let result = (0..40).fold(mapped_input, |acc, _| say_and_speak(&acc));
     result.len()
 }
@@ -33,7 +36,10 @@ fn say_and_speak(input: &[usize]) -> Vec<usize> {
 }
 
 fn part_2(input: &str) -> usize {
-    let mapped_input = input.chars().map(|c| usize::from_str_radix(&c.to_string(), 10).unwrap()).collect::<Vec<usize>>();
+    let mapped_input = input
+        .chars()
+        .map(|c| usize::from_str_radix(&c.to_string(), 10).unwrap())
+        .collect::<Vec<usize>>();
     let result = (0..50).fold(mapped_input, |acc, _| say_and_speak(&acc));
     result.len()
 }
