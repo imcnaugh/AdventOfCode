@@ -1,79 +1,73 @@
-use regex::Regex;
-use std::collections::HashSet;
-
 fn main() {
     let input = include_str!("../resource/input.txt");
-    println!("Part 1: {}", part_1(input));
+    println!("Part 1: {}", solve(input, false));
+    println!("Part 2: {}", solve(input, true));
 }
 
-fn part_1(input: &str) -> usize {
-    let matcher = Regex::new(r"(.) (\d+)").unwrap();
-    let mut max_height = 0;
-    let mut min_height = 0;
-    let mut max_left = 0;
-    let mut max_right = 0;
+fn solve(input: &str, is_part_2: bool) -> i64 {
+    let mut current = (0, 0);
+    let mut vertices = vec![current];
+    let mut boundary_points = 0;
 
-    let mut trench = input
-        .split('\n')
-        .map(|line| {
-            let captures = matcher.captures(line).unwrap();
-            let dir = captures.get(1).unwrap().as_str();
-            let steps = captures.get(2).unwrap().as_str().parse::<i32>().unwrap();
-            (dir, steps)
-        })
-        .fold(
-            (HashSet::<(i32, i32)>::new(), (0, 0)),
-            |mut acc, (dir, steps)| {
-                let mut current = acc.1;
-                let step_math = match dir {
-                    "U" => (0, 1),
-                    "D" => (-0, -1),
-                    "L" => (-1, 0),
-                    "R" => (1, 0),
-                    _ => (0, 0),
-                };
-                (0..steps).for_each(|_| {
-                    current = (current.0 + step_math.0, current.1 + step_math.1);
-                    acc.0.insert(current);
-                });
+    for line in input.lines() {
+        if line.is_empty() {
+            continue;
+        }
+        let (dir, steps) = if is_part_2 {
+            part_2_parser(line)
+        } else {
+            part_1_parser(line)
+        };
 
-                if dir == "U" && current.1 > max_height {
-                    max_height = current.1;
-                }
-                if dir == "D" && current.1 < min_height {
-                    min_height = current.1;
-                }
-                if dir == "L" && current.0 < max_left {
-                    max_left = current.0;
-                }
-                if dir == "R" && current.0 > max_right {
-                    max_right = current.0;
-                }
+        let (dx, dy) = match dir {
+            "R" => (1, 0),
+            "D" => (0, -1),
+            "L" => (-1, 0),
+            "U" => (0, 1),
+            _ => unreachable!(),
+        };
 
-                (acc.0, current)
-            },
-        )
-        .0;
+        current = (current.0 + dx * steps as i64, current.1 + dy * steps as i64);
+        vertices.push(current);
+        boundary_points += steps as i64;
+    }
 
-    flood_fill(&mut trench, (0, 0));
+    // Shoelace formula for area
+    let mut area = 0;
+    for i in 0..vertices.len() - 1 {
+        area += vertices[i].0 * vertices[i + 1].1;
+        area -= vertices[i + 1].0 * vertices[i].1;
+    }
+    area = area.abs() / 2;
 
-    trench.len()
+    // Pick's Theorem: Area = InternalPoints + BoundaryPoints / 2 - 1
+    // InternalPoints = Area - BoundaryPoints / 2 + 1
+    // Total Volume = InternalPoints + BoundaryPoints
+    // Total Volume = (Area - BoundaryPoints / 2 + 1) + BoundaryPoints
+    // Total Volume = Area + BoundaryPoints / 2 + 1
+    area + boundary_points / 2 + 1
 }
 
-fn flood_fill(trench: &mut HashSet<(i32, i32)>, current: (i32, i32)) {
-    trench.insert(current);
-    if !trench.contains(&(current.0 - 1, current.1)) {
-        flood_fill(trench, (current.0 - 1, current.1));
-    }
-    if !trench.contains(&(current.0 + 1, current.1)) {
-        flood_fill(trench, (current.0 + 1, current.1));
-    }
-    if !trench.contains(&(current.0, current.1 - 1)) {
-        flood_fill(trench, (current.0, current.1 - 1));
-    }
-    if !trench.contains(&(current.0, current.1 + 1)) {
-        flood_fill(trench, (current.0, current.1 + 1));
-    }
+fn part_1_parser(line: &str) -> (&str, i32) {
+    let parts: Vec<&str> = line.split_whitespace().collect();
+    let dir = parts[0];
+    let steps = parts[1].parse::<i32>().unwrap();
+    (dir, steps)
+}
+
+fn part_2_parser(line: &str) -> (&str, i32) {
+    let start = line.find('#').unwrap();
+    let hex = &line[start + 1..start + 7];
+    let steps = i32::from_str_radix(&hex[0..5], 16).unwrap();
+    let dir = match &hex[5..6] {
+        "0" => "R",
+        "1" => "D",
+        "2" => "L",
+        "3" => "U",
+        _ => panic!("Invalid direction"),
+    };
+
+    (dir, steps)
 }
 
 #[cfg(test)]
@@ -83,6 +77,12 @@ mod tests {
     #[test]
     fn test_part_1() {
         let input = include_str!("../resource/test.txt");
-        assert_eq!(part_1(input), 62);
+        assert_eq!(solve(input, false), 62);
+    }
+
+    #[test]
+    fn test_part_2() {
+        let input = include_str!("../resource/test.txt");
+        assert_eq!(solve(input, true), 952408144115);
     }
 }
