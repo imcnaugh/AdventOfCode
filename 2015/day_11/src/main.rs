@@ -1,5 +1,3 @@
-use std::collections::HashSet;
-
 fn main() {
     let input = "cqjxjnds";
     println!("Part 1: {}", part_1(&input));
@@ -9,62 +7,62 @@ fn main() {
 fn part_1(input: &str) -> String {
     let mut current = input.to_string();
     loop {
-        let next = increment_password(&current);
-        if is_password_valid(&next) {
-            return next;
+        current = increment_password(&current);
+        if is_password_valid(&current) {
+            return current;
         }
-        current = next;
     }
 }
 
 fn increment_password(password: &str) -> String {
-    let mut char_array = password.chars().map(|c| c as u8).rev().collect::<Vec<u8>>();
+    let mut bytes = password.as_bytes().to_vec();
 
-    for mut c in char_array.iter_mut() {
-        if c == &122 {
-            *c = 97;
+    for byte in bytes.iter_mut().rev() {
+        if *byte == b'z' {
+            *byte = b'a';
         } else {
-            *c += 1;
+            *byte += 1;
             break;
         }
     }
 
-    char_array
-        .iter()
-        .rev()
-        .map(|&c| c as char)
-        .collect::<String>()
+    String::from_utf8(bytes).unwrap()
 }
 
 fn is_password_valid(password: &str) -> bool {
-    let char_array = password.chars().map(|c| c as u8).collect::<Vec<u8>>();
+    let bytes = password.as_bytes();
 
-    let invalid_chars = vec!['i', 'o', 'l']
+    // Rule 1: Passwords must include one increasing straight of at least three letters.
+    let has_straight = bytes
+        .windows(3)
+        .any(|w| w[0] + 1 == w[1] && w[1] + 1 == w[2]);
+
+    if !has_straight {
+        return false;
+    }
+
+    // Rule 2: Passwords may not contain the letters i, o, or l.
+    let has_invalid = bytes
         .iter()
-        .map(|&c| c as u8)
-        .collect::<HashSet<u8>>();
+        .any(|&b| b == b'i' || b == b'o' || b == b'l');
 
-    let mut contain_invalid =
-        invalid_chars.contains(&char_array[0]) || invalid_chars.contains(&char_array[1]);
-    let mut contain_increasing_string = false;
-    let mut overlapping_pairs = if char_array[0] == char_array[1] { 1 } else { 0 };
+    if has_invalid {
+        return false;
+    }
 
-    (2..char_array.len()).for_each(|i| {
-        let partial_string = &char_array[i - 2..=i];
-        if invalid_chars.contains(&partial_string[2]) {
-            contain_invalid = true;
+    // Rule 3: Passwords must contain at least two different, non-overlapping pairs of letters.
+    let mut pairs = 0;
+    let mut i = 0;
+    while i < bytes.len() - 1 {
+        if bytes[i] == bytes[i + 1] {
+            pairs += 1;
+            i += 2; // Skip next to ensure non-overlapping
+        } else {
+            i += 1;
         }
-        if partial_string[1] == (partial_string[0] + 1)
-            && partial_string[2] == (partial_string[1] + 1)
-        {
-            contain_increasing_string = true;
-        }
-        if partial_string[1] == partial_string[2] && partial_string[0] != partial_string[1] {
-            overlapping_pairs += 1;
-        }
-    });
+    }
 
-    !contain_invalid && contain_increasing_string && overlapping_pairs >= 2
+    pairs >= 2
 }
 
 #[cfg(test)]
@@ -90,7 +88,13 @@ mod tests {
     }
 
     #[test]
-    fn increment_password_1() {
+    fn test_part_1_examples() {
+        assert_eq!("abcdffaa", part_1("abcdefgh"));
+        assert_eq!("ghjaabcc", part_1("ghijklmn"));
+    }
+
+    #[test]
+    fn test_increment_password() {
         assert_eq!("abcdffab", increment_password("abcdffaa"));
         assert_eq!("abcdffba", increment_password("abcdffaz"));
     }
