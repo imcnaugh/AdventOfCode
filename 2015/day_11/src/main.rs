@@ -3,6 +3,7 @@ use std::collections::HashSet;
 fn main() {
     let input = "cqjxjnds";
     println!("Part 1: {}", part_1(&input));
+    println!("Part 2: {}", part_1("cqjxxyzz"));
 }
 
 fn part_1(input: &str) -> String {
