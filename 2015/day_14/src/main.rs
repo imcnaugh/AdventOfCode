@@ -24,21 +24,27 @@ fn get_max_points_after_race(parsed_inputs: Vec<(u8, u8, u8)>, race_length: usiz
     let mut distance: Vec<usize> = vec![0; parsed_inputs.len()];
     let mut points: Vec<usize> = vec![0; parsed_inputs.len()];
     (0..=race_length).for_each(|time| {
-        parsed_inputs.iter().zip(distance.iter_mut()).for_each(|(deer, distance)| {
-            *distance += if is_deer_running(deer, time) { deer.0 as usize } else { 0 };
-        });
+        parsed_inputs
+            .iter()
+            .zip(distance.iter_mut())
+            .for_each(|(deer, distance)| {
+                *distance += if is_deer_running(deer, time) {
+                    deer.0 as usize
+                } else {
+                    0
+                };
+            });
 
         let max_distance = distance.iter().max().unwrap();
-        distance.iter().zip(points.iter_mut()).for_each(|(distance, points)| {
-            if distance == max_distance {
-                *points += 1;
-            }
-        });
+        distance
+            .iter()
+            .zip(points.iter_mut())
+            .for_each(|(distance, points)| {
+                if distance == max_distance {
+                    *points += 1;
+                }
+            });
     });
-
-    println!("{:?}", distance);
-    println!("{:?}", points);
-    println!("{:?}", points.iter().sum::<usize>());
     points.into_iter().max().unwrap()
 }
 
