@@ -3,6 +3,7 @@ use regex::Regex;
 fn main() {
     let input = include_str!("../resources/input.txt");
     println!("Part 1: {}", part_1(input));
+    println!("Part 2: {}", part_2(input));
 }
 
 fn part_1(input: &str) -> usize {
@@ -11,6 +12,39 @@ fn part_1(input: &str) -> usize {
         .map(|(speed, run_time, rest_time)| get_distance(*speed, *run_time, *rest_time, 2503))
         .max()
         .unwrap()
+}
+
+fn part_2(input: &str) -> usize {
+    let parsed_inputs = parse_inputs(input);
+    let race_length = 2503usize;
+    get_max_points_after_race(parsed_inputs, race_length)
+}
+
+fn get_max_points_after_race(parsed_inputs: Vec<(u8, u8, u8)>, race_length: usize) -> usize {
+    let mut distance: Vec<usize> = vec![0; parsed_inputs.len()];
+    let mut points: Vec<usize> = vec![0; parsed_inputs.len()];
+    (0..=race_length).for_each(|time| {
+        parsed_inputs.iter().zip(distance.iter_mut()).for_each(|(deer, distance)| {
+            *distance += if is_deer_running(deer, time) { deer.0 as usize } else { 0 };
+        });
+
+        let max_distance = distance.iter().max().unwrap();
+        distance.iter().zip(points.iter_mut()).for_each(|(distance, points)| {
+            if distance == max_distance {
+                *points += 1;
+            }
+        });
+    });
+
+    println!("{:?}", distance);
+    println!("{:?}", points);
+    println!("{:?}", points.iter().sum::<usize>());
+    points.into_iter().max().unwrap()
+}
+
+fn is_deer_running(deer: &(u8, u8, u8), time: usize) -> bool {
+    let i = time % (deer.1 + deer.2) as usize;
+    (i as u8) < deer.1
 }
 
 fn get_distance(speed: u8, run_time: u8, rest_time: u8, total_time: usize) -> usize {
@@ -47,5 +81,18 @@ mod tests {
     #[test]
     fn test_dancer() {
         assert_eq!(get_distance(16, 11, 162, 1000), 1056);
+    }
+
+    #[test]
+    fn is_deer_running_test() {
+        (0..10).for_each(|time| assert!(is_deer_running(&(1, 10, 10), time), "time: {}", time));
+        (10..20).for_each(|time| assert!(!is_deer_running(&(1, 10, 10), time), "time: {}", time));
+    }
+
+    #[test]
+    fn part_2() {
+        let deer = vec![(14, 10, 127), (16, 11, 162)];
+        let time = 1000;
+        assert_eq!(get_max_points_after_race(deer, time), 689);
     }
 }
