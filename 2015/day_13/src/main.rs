@@ -4,6 +4,7 @@ use regex::Regex;
 fn main() {
     let input = include_str!("../resources/input.txt");
     println!("{}", part_1(input));
+    println!("{}", part_2(input));
 }
 
 fn part_1(input: &str) -> i64 {
@@ -66,5 +67,7 @@ fn part_2(input: &str) -> i64 {
         people.insert(other_person.clone());
         happiness_map.entry(person).or_insert(HashMap::new()).insert(other_person, happiness);
     });
+    happiness_map.entry("Me".to_string()).or_insert(HashMap::new());
+    people.insert("Me".to_string());
     seat_people(vec![], people, &happiness_map)
 }
