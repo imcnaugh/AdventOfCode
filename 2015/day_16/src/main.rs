@@ -2,39 +2,33 @@ use regex::Regex;
 use std::collections::HashMap;
 
 fn main() {
+    println!("Part 1: {}", search(part_1_match));
+    println!("Part 2: {}", search(part_2_match));
+}
+
+fn search(search_fn: fn(&HashMap<String, usize>, &HashMap<String, usize>) -> bool) -> usize {
     let input = include_str!("../resources/input.txt");
-    println!("Part 1: {}", part_1(input));
-    println!("Part 2: {}", part_2(input));
-}
-
-fn part_1(input: &str) -> usize {
     let expected = get_expected();
     input
         .lines()
         .map(parse_line)
-        .find(|(_, properties)| {
-            properties
-                .iter()
-                .all(|(key, value)| expected.get(key) == Some(value))
-        })
+        .find(|(_, properties)| search_fn(&expected, properties))
         .unwrap()
         .0
 }
 
-fn part_2(input: &str) -> usize {
-    let expected = get_expected();
-    input
-        .lines()
-        .map(parse_line)
-        .find(|(_, properties)| {
-            properties.iter().all(|(key, value)| match key.as_str() {
-                "cats" | "trees" => *value > expected[key],
-                "pomeranians" | "goldfish" => *value < expected[key],
-                _ => expected.get(key) == Some(value),
-            })
-        })
-        .unwrap()
-        .0
+fn part_1_match(expected: &HashMap<String, usize>, properties: &HashMap<String, usize>) -> bool {
+    properties
+        .iter()
+        .all(|(key, value)| expected.get(key) == Some(value))
+}
+
+fn part_2_match(expected: &HashMap<String, usize>, properties: &HashMap<String, usize>) -> bool {
+    properties.iter().all(|(key, value)| match key.as_str() {
+        "cats" | "trees" => *value > expected[key],
+        "pomeranians" | "goldfish" => *value < expected[key],
+        _ => expected.get(key) == Some(value),
+    })
 }
 
 fn parse_line(line: &str) -> (usize, HashMap<String, usize>) {
