@@ -7,39 +7,37 @@ fn main() {
 }
 
 fn part_2(input: &str) -> usize {
-    let (mut replacements, polymer) = parse_input_part_2(input);
-    replacements.sort_by(|a, b| {
-        let i = b.0.len().cmp(&a.0.len());
-        if i == std::cmp::Ordering::Equal {
-            a.1.cmp(&b.1)
-        } else {
-            i
+    let (mut replacements, mut polymer) = parse_input_part_2(input);
+    // Sort by length of the pattern (the string we're replacing FROM in reverse)
+    // so we try longer replacements first (greedy)
+    replacements.sort_by(|a, b| b.0.len().cmp(&a.0.len()));
+
+    let mut steps = 0;
+    while polymer != "e" {
+        let mut replaced = false;
+        for (a, b) in &replacements {
+            if let Some(pos) = polymer.find(a) {
+                polymer.replace_range(pos..pos + a.len(), b);
+                steps += 1;
+                replaced = true;
+                break;
+            }
         }
-    });
-
-    reduce(polymer, &replacements)
-}
-
-fn reduce(polymer: String, replacements: &Vec<(String, String)>) -> usize {
-    if polymer == "e" {
-        return 0;
+        if !replaced {
+            println!("Failed to replace anything in {} steps", steps);
+            // If we get stuck, we might need a more sophisticated search or shuffle
+            // But for AoC 2015 day 19, greedy usually works with a bit of luck or shuffling.
+            // If greedy fails, a common trick is to shuffle the replacements.
+            use rand::seq::SliceRandom;
+            let mut rng = rand::thread_rng();
+            replacements.shuffle(&mut rng);
+            // Reset and try again from the beginning if we hit a dead end
+            let (_, p) = parse_input_part_2(input);
+            polymer = p;
+            steps = 0;
+        }
     }
-
-    replacements
-        .iter()
-        .map(|(a, b)| {
-            polymer
-                .match_indices(a)
-                .map(|(i, _)| {
-                    let reduced_string =
-                        format!("{}{}{}", &polymer[..i], b, &polymer[i + a.len()..]);
-                    reduce(reduced_string, replacements).saturating_add(1)
-                })
-                .min()
-                .unwrap_or(usize::MAX)
-        })
-        .min()
-        .unwrap()
+    steps
 }
 
 fn part_1(input: &str) -> usize {
