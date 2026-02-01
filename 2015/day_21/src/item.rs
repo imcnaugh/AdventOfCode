@@ -1,4 +1,4 @@
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub struct Item {
     name: String,
     damage_mod: i32,
@@ -7,7 +7,7 @@ pub struct Item {
     item_type: ItemType,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Debug, Clone, PartialEq, Eq, Hash)]
 pub enum ItemType {
     Weapon,
     Armor,
@@ -15,19 +15,7 @@ pub enum ItemType {
 }
 
 impl Item {
-    pub fn new_weapon(name: String, damage_mod: i32, armor_mod: i32, cost: i32) -> Item {
-        Item::new_item(name, damage_mod, armor_mod, cost, ItemType::Weapon)
-    }
-
-    pub fn new_armor(name: String, damage_mod: i32, armor_mod: i32, cost: i32) -> Item {
-        Item::new_item(name, damage_mod, armor_mod, cost, ItemType::Armor)
-    }
-
-    pub fn new_ring(name: String, damage_mod: i32, armor_mod: i32, cost: i32) -> Item {
-        Item::new_item(name, damage_mod, armor_mod, cost, ItemType::Ring)
-    }
-
-    fn new_item(
+    pub fn new(
         name: String,
         damage_mod: i32,
         armor_mod: i32,

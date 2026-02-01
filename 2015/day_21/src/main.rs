@@ -1,3 +1,4 @@
+use crate::item::ItemType::{Armor, Ring, Weapon};
 use crate::item::{Item, ItemType};
 use crate::player::Player;
 use regex::Regex;
@@ -10,22 +11,122 @@ fn main() {
     println!("Part 1: {}", part_1(input));
 }
 
-fn part_1(input: &str) -> usize {
-    let mut boss = crate_boss(input);
-    let (weapons, armors, rings) = parse_all_items();
+fn part_1(input: &str) -> i32 {
+    let boss = crate_boss(input);
+    let player = Player::new(100);
 
-    println!("{:?}, {:?}, {:?}", weapons, armors, rings);
+    let weapons = parse_items(Weapon);
+    let armors = parse_items(Armor);
+    let rings = parse_items(Ring);
 
-    todo!()
+    let min_cost = get_min_cost_of_weapon(&player, &boss, &weapons, &armors, &rings).unwrap();
+    println!("min cost: {}", min_cost);
+    min_cost
 }
 
-// TODO fix this
-fn will_player_win(player: Player, boss: Player) -> bool {
-    let turns = vec![player, boss];
-    let mut turn_iter = turns.iter().cycle();
+fn get_min_cost_of_weapon(
+    player: &Player,
+    boss: &Player,
+    weapons: &Vec<Item>,
+    armors: &Vec<Item>,
+    rings: &Vec<Item>,
+) -> Option<i32> {
+    let min_cost = weapons
+        .iter()
+        .map(|w| {
+            let mut player = player.clone();
+            player.set_weapon(w.clone());
+            if will_player_win(&player, boss) {
+                Some(w.get_cost())
+            } else {
+                let cost_with_1_ring =
+                    get_min_cost_of_1_ring(&player, boss, rings).unwrap_or(i32::MAX);
+                let cost_with_2_rings =
+                    get_min_cost_of_2_rings(&player, boss, rings).unwrap_or(i32::MAX);
+                let cost_with_armor =
+                    get_min_cost_of_armor(&player, boss, armors, rings).unwrap_or(i32::MAX);
+                Some(cost_with_1_ring.min(cost_with_2_rings).min(cost_with_armor) + w.get_cost())
+            }
+        })
+        .flatten()
+        .collect::<Vec<i32>>();
+    min_cost.into_iter().min()
+}
+
+fn get_min_cost_of_armor(
+    player: &Player,
+    boss: &Player,
+    armors: &Vec<Item>,
+    rings: &Vec<Item>,
+) -> Option<i32> {
+    armors
+        .iter()
+        .map(|a| {
+            let mut player = player.clone();
+            player.set_armor(a.clone());
+            if will_player_win(&player, boss) {
+                Some(a.get_cost())
+            } else {
+                let cost_with_1_ring =
+                    get_min_cost_of_1_ring(&player, boss, rings).unwrap_or(i32::MAX);
+                let cost_with_2_rings =
+                    get_min_cost_of_2_rings(&player, boss, rings).unwrap_or(i32::MAX);
+                Some(cost_with_1_ring.min(cost_with_2_rings) + a.get_cost())
+            }
+        })
+        .flatten()
+        .collect::<Vec<i32>>()
+        .into_iter()
+        .min()
+}
+
+fn get_min_cost_of_1_ring(player: &Player, boss: &Player, rings: &Vec<Item>) -> Option<i32> {
+    rings
+        .iter()
+        .map(|r| {
+            let mut player = player.clone();
+            player.add_ring(r.clone());
+
+            if will_player_win(&player, boss) {
+                Some(r.get_cost())
+            } else {
+                None
+            }
+        })
+        .flatten()
+        .collect::<Vec<i32>>()
+        .into_iter()
+        .min()
+}
+
+fn get_min_cost_of_2_rings(player: &Player, boss: &Player, rings: &Vec<Item>) -> Option<i32> {
+    let mut min = None;
+    for p1 in 0..rings.len() {
+        for p2 in p1 + 1..rings.len() {
+            let mut player = player.clone();
+            player.add_ring(rings[p1].clone());
+            player.add_ring(rings[p2].clone());
+            if will_player_win(&player, boss) {
+                let cost = rings[p1].get_cost() + rings[p2].get_cost();
+                if cost < min.unwrap_or(i32::MAX) {
+                    min = Some(cost);
+                }
+            }
+        }
+    }
+    min
+}
+
+fn will_player_win(player: &Player, boss: &Player) -> bool {
+    let mut player = player.clone();
+    let mut boss = boss.clone();
     loop {
-        let current_turn = turn_iter.next().unwrap();
-        if current_turn.is_alive() {
+        boss.take_attack(&player);
+        if !boss.is_alive() {
+            return true;
+        }
+        player.take_attack(&boss);
+        if !player.is_alive() {
             return false;
         }
     }
@@ -46,38 +147,34 @@ fn crate_boss(input: &str) -> Player {
         .parse::<i32>()
         .unwrap();
 
-    let weapon = Item::new_weapon(String::from("boss weapon"), damage, armor, 0);
-    Player::new(hit_points, weapon)
+    let weapon = Item::new(String::from("boss weapon"), damage, 0, 0, Weapon);
+    let armor = Item::new(String::from("boss armor"), 0, armor, 0, Armor);
+    let mut boss = Player::new(hit_points);
+    boss.set_weapon(weapon);
+    boss.set_armor(armor);
+    boss
 }
 
-fn parse_all_items() -> (Vec<Item>, Vec<Item>, Vec<Item>) {
-    let (weapons, armors, rings) = (
-        parse_items("./resources/weapons.txt", ItemType::Weapon),
-        parse_items("./resources/armor.txt", ItemType::Armor),
-        parse_items("./resources/rings.txt", ItemType::Ring),
-    );
-    (weapons, armors, rings)
-}
-
-fn parse_items(file: &str, item_type: ItemType) -> Vec<Item> {
-    println!("Current directory: {:?}", std::env::current_dir().unwrap());
-
-    let file_text = std::fs::read_to_string(file).unwrap();
-    file_text
+fn parse_items(item_type: ItemType) -> Vec<Item> {
+    let file = match item_type {
+        Weapon => "./resources/weapons.txt",
+        Armor => "./resources/armor.txt",
+        Ring => "./resources/rings.txt",
+    };
+    let text = std::fs::read_to_string(file).unwrap();
+    let items = text
         .lines()
-        .map(|line| {
-            let parts: Vec<&str> = line.split_whitespace().collect();
-            let create_fn = match item_type {
-                ItemType::Weapon => Item::new_weapon,
-                ItemType::Armor => Item::new_armor,
-                ItemType::Ring => Item::new_ring,
-            };
-            create_fn(
+        .map(|l| {
+            let parts: Vec<&str> = l.split_whitespace().collect();
+            Item::new(
                 String::from(parts[0]),
-                parts[1].parse::<i32>().unwrap(),
                 parts[2].parse::<i32>().unwrap(),
                 parts[3].parse::<i32>().unwrap(),
+                parts[1].parse::<i32>().unwrap(),
+                item_type.clone(),
             )
         })
-        .collect()
+        .collect();
+    println!("{:?}", items);
+    items
 }
