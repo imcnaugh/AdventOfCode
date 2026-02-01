@@ -8,10 +8,10 @@ mod player;
 
 fn main() {
     let input = include_str!("../resources/input.txt");
-    println!("Part 1: {}", part_1(input));
+    println!("Part 2: {}", part_2(input));
 }
 
-fn part_1(input: &str) -> i32 {
+fn part_2(input: &str) -> i32 {
     let boss = crate_boss(input);
     let player = Player::new(100);
 
@@ -19,41 +19,40 @@ fn part_1(input: &str) -> i32 {
     let armors = parse_items(Armor);
     let rings = parse_items(Ring);
 
-    let min_cost = get_min_cost_of_weapon(&player, &boss, &weapons, &armors, &rings).unwrap();
-    println!("min cost: {}", min_cost);
-    min_cost
+    get_max_cost_of_weapon(&player, &boss, &weapons, &armors, &rings).unwrap()
 }
 
-fn get_min_cost_of_weapon(
+fn get_max_cost_of_weapon(
     player: &Player,
     boss: &Player,
     weapons: &Vec<Item>,
     armors: &Vec<Item>,
     rings: &Vec<Item>,
 ) -> Option<i32> {
-    let min_cost = weapons
+    let max_cost = weapons
         .iter()
         .map(|w| {
             let mut player = player.clone();
             player.set_weapon(w.clone());
             if will_player_win(&player, boss) {
-                Some(w.get_cost())
+                None
             } else {
-                let cost_with_1_ring =
-                    get_min_cost_of_1_ring(&player, boss, rings).unwrap_or(i32::MAX);
-                let cost_with_2_rings =
-                    get_min_cost_of_2_rings(&player, boss, rings).unwrap_or(i32::MAX);
+                let cost_with_1_ring = get_max_cost_of_1_ring(&player, boss, rings).unwrap_or(0);
+                let cost_with_2_rings = get_max_cost_of_2_rings(&player, boss, rings).unwrap_or(0);
                 let cost_with_armor =
-                    get_min_cost_of_armor(&player, boss, armors, rings).unwrap_or(i32::MAX);
-                Some(cost_with_1_ring.min(cost_with_2_rings).min(cost_with_armor) + w.get_cost())
+                    get_max_cost_of_armor(&player, boss, armors, rings).unwrap_or(0);
+                let max_cost = w.get_cost().max(
+                    cost_with_1_ring.max(cost_with_2_rings).max(cost_with_armor) + w.get_cost(),
+                );
+                Some(max_cost)
             }
         })
         .flatten()
         .collect::<Vec<i32>>();
-    min_cost.into_iter().min()
+    max_cost.into_iter().max()
 }
 
-fn get_min_cost_of_armor(
+fn get_max_cost_of_armor(
     player: &Player,
     boss: &Player,
     armors: &Vec<Item>,
@@ -65,29 +64,28 @@ fn get_min_cost_of_armor(
             let mut player = player.clone();
             player.set_armor(a.clone());
             if will_player_win(&player, boss) {
-                Some(a.get_cost())
+                None
             } else {
-                let cost_with_1_ring =
-                    get_min_cost_of_1_ring(&player, boss, rings).unwrap_or(i32::MAX);
-                let cost_with_2_rings =
-                    get_min_cost_of_2_rings(&player, boss, rings).unwrap_or(i32::MAX);
-                Some(cost_with_1_ring.min(cost_with_2_rings) + a.get_cost())
+                let cost_with_0_rings = a.get_cost();
+                let cost_with_1_ring = get_max_cost_of_1_ring(&player, boss, rings).unwrap_or(0);
+                let cost_with_2_rings = get_max_cost_of_2_rings(&player, boss, rings).unwrap_or(0);
+                Some(cost_with_0_rings.max(cost_with_1_ring.max(cost_with_2_rings) + a.get_cost()))
             }
         })
         .flatten()
         .collect::<Vec<i32>>()
         .into_iter()
-        .min()
+        .max()
 }
 
-fn get_min_cost_of_1_ring(player: &Player, boss: &Player, rings: &Vec<Item>) -> Option<i32> {
+fn get_max_cost_of_1_ring(player: &Player, boss: &Player, rings: &Vec<Item>) -> Option<i32> {
     rings
         .iter()
         .map(|r| {
             let mut player = player.clone();
             player.add_ring(r.clone());
 
-            if will_player_win(&player, boss) {
+            if !will_player_win(&player, boss) {
                 Some(r.get_cost())
             } else {
                 None
@@ -96,25 +94,25 @@ fn get_min_cost_of_1_ring(player: &Player, boss: &Player, rings: &Vec<Item>) -> 
         .flatten()
         .collect::<Vec<i32>>()
         .into_iter()
-        .min()
+        .max()
 }
 
-fn get_min_cost_of_2_rings(player: &Player, boss: &Player, rings: &Vec<Item>) -> Option<i32> {
-    let mut min = None;
+fn get_max_cost_of_2_rings(player: &Player, boss: &Player, rings: &Vec<Item>) -> Option<i32> {
+    let mut max = None;
     for p1 in 0..rings.len() {
         for p2 in p1 + 1..rings.len() {
             let mut player = player.clone();
             player.add_ring(rings[p1].clone());
             player.add_ring(rings[p2].clone());
-            if will_player_win(&player, boss) {
+            if !will_player_win(&player, boss) {
                 let cost = rings[p1].get_cost() + rings[p2].get_cost();
-                if cost < min.unwrap_or(i32::MAX) {
-                    min = Some(cost);
+                if cost > max.unwrap_or(0) {
+                    max = Some(cost);
                 }
             }
         }
     }
-    min
+    max
 }
 
 fn will_player_win(player: &Player, boss: &Player) -> bool {
