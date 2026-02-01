@@ -1,3 +1,4 @@
+#[derive(Debug, Clone)]
 pub struct Item {
     name: String,
     damage_mod: i32,
