@@ -4,7 +4,7 @@ pub struct Player {
     name: String,
     max_hp: i32,
     current_hp: i32,
-    effects: Vec<Effect>
+    effects: Vec<Effect>,
 }
 
 impl Player {
@@ -26,7 +26,9 @@ impl Player {
     }
 
     pub fn apply_effects(&mut self) {
-        self.effects.iter_mut().for_each(|effect| effect.apply(self));
+        self.effects
+            .iter_mut()
+            .for_each(|effect| effect.apply(self));
         self.effects.retain(|effect| effect.is_active());
     }
 }

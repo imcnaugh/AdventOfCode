@@ -1,6 +1,5 @@
-pub mod player;
 pub mod effect;
+pub mod player;
+mod spells;
 
-fn main() {
-
-}
+fn main() {}
