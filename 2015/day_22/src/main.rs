@@ -17,11 +17,18 @@ fn main() {
 }
 
 fn fight(state: FightState) -> i32 {
-    if state.used_mana > 1100 {
+    if state.used_mana > 1500 {
         return i32::MAX;
     }
 
     let mut new_state = state.clone();
+    if new_state.is_player_turn {
+        new_state.player_health -= 1;
+        if new_state.player_health <= 0 {
+            return i32::MAX;
+        }
+    }
+
     state.active_effects.iter().for_each(|effect| match effect {
         Effect::Poison => new_state.boss_health -= 3,
         Effect::Recharge => new_state.player_mana += 101,
@@ -50,7 +57,7 @@ fn fight(state: FightState) -> i32 {
         if turns > 1 {
             new_state.recharges_remaining_turns = Some(turns - 1);
         } else {
-            new_state.player_mana += 101;
+            new_state.active_effects.remove(&Effect::Recharge);
             new_state.recharges_remaining_turns = None;
         }
     }
@@ -59,7 +66,7 @@ fn fight(state: FightState) -> i32 {
         return i32::MAX;
     }
     if new_state.boss_health <= 0 {
-        return state.used_mana;
+        return new_state.used_mana;
     }
     if state.is_player_turn {
         let available_spells = get_available_spells(&new_state);
