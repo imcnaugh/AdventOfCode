@@ -9,7 +9,7 @@ pub struct Computer {
 impl Computer {
     pub fn new(instructions: Vec<Instruction>) -> Self {
         Self {
-            reg_a: 0,
+            reg_a: 1,
             reg_b: 0,
             instructions,
             current_instruction_idx: 0,
