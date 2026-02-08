@@ -10,19 +10,9 @@ fn main() {
     let mult = 252533usize;
     let divi = 33554393usize;
 
-    // let row = 3;
-    // let col = 3;
-
     let start_of_row_num = (1..=row).enumerate().map(|(x, _)| x).sum::<usize>() + 1;
     let index = (1..col).fold(start_of_row_num, |acc, x| acc + (row + x));
 
-    let code = (1..index).fold(20151125usize, |acc, index| {
-        let mul = acc * mult;
-        mul % divi
-    });
-
-    println!("row: {row}, col: {col}");
-    println!("start of row: {start_of_row_num}");
-    println!("index: {index}");
+    let code = (1..index).fold(20151125usize, |acc, _| (acc * mult) % divi);
     println!("code: {code}");
 }
