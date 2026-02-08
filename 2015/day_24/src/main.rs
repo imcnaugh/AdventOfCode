@@ -6,7 +6,7 @@ fn main() {
 fn part_1(input: &str) -> usize {
     let packages = parse_input(input);
     let total: usize = packages.iter().sum();
-    let compartment_total = total / 3;
+    let compartment_total = total / 4;
     println!("Sum of packages: {}", total);
     println!("Compartment total: {}", compartment_total);
     println!("pack: {:?}", packages);
