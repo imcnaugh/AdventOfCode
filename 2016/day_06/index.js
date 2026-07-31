@@ -20,7 +20,7 @@ input.split('\n').forEach(line => {
 })
 
 let part1 = indexedMaps.map(m => {
-    const sorted =  Array.from(m).sort((a, b) => b[1] - a[1])
+    const sorted =  Array.from(m).sort((a, b) => a[1] - b[1])
     return sorted[0][0]
 }).join('')
 
