@@ -3,8 +3,8 @@ import fs from 'node:fs'
 const input = fs.readFileSync('input.txt', 'utf8')
 
 function isValidTriangle(numbers) {
-    let sortedNums = numbers.sort((a, b) => a - b)
-    return (sortedNums[0] + sortedNums[1]) > sortedNums[2]
+    numbers.sort((a, b) => a - b)
+    return (numbers[0] + numbers[1]) > numbers[2]
 }
 
 const validTriangles = input.split('\n')

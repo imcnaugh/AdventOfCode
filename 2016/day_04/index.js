@@ -51,7 +51,7 @@ const sectorIdSum = input.split('\n').map(line => {
 
 console.log(`Part 1: ${sectorIdSum}`)
 
-const expected = /northpole-object/ig
+const expected = /northpole-object/i
 // const expected = /north/i
 
 input.split('\n').map(line => {

@@ -27,8 +27,8 @@ console.log(`Part 1: ${part1}`)
 
 
 let matchPart2 = /^00000[0-7]/
-let outputPart2 = ['0','0','0','0','0','0','0','0']
-let placed = [false,false,false,false,false,false,false,false]
+let outputPart2 = new Array(8).fill(null)
+let placed = new Array(8).fill(false)
 let indexPart2 = 0;
 while(true) {
     const toHash = input + indexPart2
@@ -46,7 +46,6 @@ while(true) {
     }
     indexPart2++
 }
-
 
 const part2 = outputPart2.join('')
 console.log(`Part 2: ${part2}`)
