@@ -2,7 +2,10 @@ import fs from 'node:fs'
 
 const input = fs.readFileSync('input.txt', 'utf8')
 
-let displayPixels = Array.from({ length: 50 }, () => Array(8).fill(false));
+const height = 6;
+const width = 50;
+
+let displayPixels = Array.from({ length: width }, () => Array(height).fill(false));
 
 const rect = (a, b) => ({type:"rect", a, b})
 const rotRow = (y, shift) => ({type: "rotRow", y, shift})
@@ -21,21 +24,21 @@ function executeRect(command) {
 }
 
 function executeRotRow(command) {
-    let newRow = Array(50).fill(false)
-    for(let i = 0; i < 50; i++){
-        newRow[(i+command.shift) % 50] = displayPixels[i][command.y]
+    let newRow = Array(width).fill(false)
+    for(let i = 0; i < width; i++){
+        newRow[(i+command.shift) % width] = displayPixels[i][command.y]
     }
-    for(let i = 0; i < 50; i++){
+    for(let i = 0; i < width; i++){
         displayPixels[i][command.y] = newRow[i]
     }
 }
 
 function executeRotCol(command){
-    let newCol = Array(8).fill(false)
-    for(let i = 0; i < 8; i++){
-        newCol[(i+command.shift) % 8] = displayPixels[command.x][i]
+    let newCol = Array(height).fill(false)
+    for(let i = 0; i < height; i++){
+        newCol[(i+command.shift) % height] = displayPixels[command.x][i]
     }
-    for(let i = 0; i < 8; i++){
+    for(let i = 0; i < height; i++){
         displayPixels[command.x][i] = newCol[i]
     }
 }
@@ -71,3 +74,12 @@ const part1 = displayPixels.map(row => {
 }).reduce((acc, c) => acc + c, 0)
 
 console.log(`Part 1: ${part1}`)
+
+for(let c = 0; c < height; c++){
+    let chars = []
+    for(let r = 0; r < width; r++) {
+        const char = displayPixels[r][c] ? "X" : " "
+        chars.push(char)
+    }
+    console.log(chars.join(''))
+}
