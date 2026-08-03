@@ -1,12 +1,6 @@
 import fs from 'node:fs'
 
 const input = fs.readFileSync('input.txt', 'utf8')
-// const input = "value 5 goes to bot 2\n" +
-//     "bot 2 gives low to bot 1 and high to bot 0\n" +
-//     "value 3 goes to bot 1\n" +
-//     "bot 1 gives low to output 1 and high to bot 0\n" +
-//     "bot 0 gives low to output 2 and high to output 0\n" +
-//     "value 2 goes to bot 2"
 
 const items = new Map()
 
