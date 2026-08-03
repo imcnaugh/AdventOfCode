@@ -76,6 +76,10 @@ input.split('\n').forEach(line => {
     }
 })
 
-console.log("idk")
 
+const part2 = ["output 0", "output 1", "output 2"].map(key => {
+    let bin = items.get(key)
+    return bin.items[0]
+}).reduce((acc, c) => acc * c, 1)
 
+console.log(`Part 2: ${part2}`)
