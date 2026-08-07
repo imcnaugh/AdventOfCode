@@ -71,8 +71,8 @@ public class Day13 {
     }
 
     private int recurBfs(Set<Point> current, Set<Point> seen, int stepCount) {
-        if(current.isEmpty()) {
-            return -1;
+        if(stepCount == 50) {
+            return seen.size() + current.size();
         }
 
         Set<Point> nextCurrent = new HashSet<>();
