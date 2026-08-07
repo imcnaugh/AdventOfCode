@@ -1,0 +1,4 @@
+The first floor contains a thulium generator, thulium-compatible microchip, klutonium generator, strontium generator.
+The second floor contains a klutonium-compatible microchip, strontium-compatible microchip.
+The third floor contains a promethium generator, promethium-compatible microchip, ruthenium generator, ruthenium-compatible microchip.
+The fourth floor contains nothing relevant.
