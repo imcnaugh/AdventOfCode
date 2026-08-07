@@ -6,7 +6,7 @@ class Comput {
     constructor(inst) {
         this.a = 0
         this.b = 0
-        this.c = 0
+        this.c = 1
         this.d = 0
         this.inst = inst
         this.currentInst = 0
