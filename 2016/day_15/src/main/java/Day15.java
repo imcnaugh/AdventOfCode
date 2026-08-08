@@ -7,7 +7,7 @@ static String input = "Disc #1 has 13 positions; at time=0, it is at position 11
 
 public class Day15 {
     private Disk[] disks;
-    private Pattern diskParsePatter = Pattern.compile("(\\d+) positions; at time=0, it is at position (\\d+)");
+    private final Pattern diskParsePatter = Pattern.compile("(\\d+) positions; at time=0, it is at position (\\d+)");
 
     public Day15(String input) {
         this.disks = input.lines().map(line -> {
@@ -19,6 +19,16 @@ public class Day15 {
             }
             return null;
         }).toArray(Disk[]::new);
+    }
+
+    public void addPart2Disk() {
+        Disk part2Disk = new Disk(11, 0);
+        Disk[] newDiskArray = new Disk[this.disks.length +1];
+        newDiskArray[newDiskArray.length - 1] = part2Disk;
+        for(int i = 0; i < disks.length; i++){
+            newDiskArray[i] = disks[i];
+        }
+        this.disks = newDiskArray;
     }
 
     public int getFirstTWhereAllDisksPass() {
@@ -42,5 +52,8 @@ public class Day15 {
 void main() {
     Day15 stack = new Day15(input);
     int part1 = stack.getFirstTWhereAllDisksPass();
-    System.out.printf("Part 1: %d", part1);
+    System.out.printf("Part 1: %d\n", part1);
+    stack.addPart2Disk();
+    int part2 = stack.getFirstTWhereAllDisksPass();
+    System.out.printf("Part 2: %d\n", part2);
 }
