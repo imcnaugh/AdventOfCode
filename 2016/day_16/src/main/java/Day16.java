@@ -53,4 +53,8 @@ void main() {
     String expanded = day16.expandToLen(input, 272);
     String checksum = day16.checkSum(expanded);
     System.out.printf("Part 1: %s\n", checksum);
+
+    String p2Expanded = day16.expandToLen(input, 35651584);
+    String p2Checksum = day16.checkSum(p2Expanded);
+    System.out.printf("Part 2; %s\n", p2Checksum);
 }
