@@ -1,4 +1,3 @@
-import javax.print.DocFlavor;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
@@ -69,21 +68,25 @@ class CurrentLocation {
 }
 
 public class Day17 {
-    public String getStepsToEnd(String input) {
+    public int getStepsToEnd(String input) {
         CurrentLocation cur = new CurrentLocation(0, 3, input);
         Set<CurrentLocation> currentLocations = new HashSet<>();
         currentLocations.add(cur);
 
+        int longestPath = 0;
+
+        int index = 0;
         while(true) {
             if(currentLocations.isEmpty()){
-                return null;
+                return longestPath;
             }
 
             Set<CurrentLocation> nextLocations = new HashSet<>();
 
             for(CurrentLocation c : currentLocations){
                 if(c.x == 3 && c.y == 0){
-                    return c.str.substring(input.length());
+                    longestPath = index;
+                    continue;
                 }
 
                 if(c.canMoveUp()){
@@ -101,12 +104,14 @@ public class Day17 {
             }
 
             currentLocations = nextLocations;
+            index++;
         }
     }
 }
 
 void main() {
     Day17 day17 = new Day17();
-    String part1 = day17.getStepsToEnd(INPUT);
-    System.out.printf("Part 1: %s", part1);
+    int part1 = day17.getStepsToEnd(INPUT);
+//    int part1 = day17.getStepsToEnd("ihgpwlah");
+    System.out.printf("Part 1: %d", part1);
 }
